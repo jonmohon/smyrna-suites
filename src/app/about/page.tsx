@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import Button from "@/components/Button";
 import { BUSINESS, JADE_SALON } from "@/lib/constants";
+import { HeartHandshake, Globe, Droplets, CalendarDays, Star, ExternalLink, Phone, Link as LinkIcon, Award, Users, Gem } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -14,24 +15,28 @@ const differentiators = [
   {
     number: "01",
     title: "Owner Support",
+    icon: <HeartHandshake className="h-7 w-7" />,
     description:
       "We are hands-on owners who care about your success. Need help with marketing, setup, or logistics? We're here for you.",
   },
   {
     number: "02",
     title: "Dual-Site Listing",
+    icon: <Globe className="h-7 w-7" />,
     description:
       "Get listed on both our website and Jade Salon of Atlanta's site, doubling your online visibility and reach.",
   },
   {
     number: "03",
     title: "Head Spa Access",
+    icon: <Droplets className="h-7 w-7" />,
     description:
       "Your clients can enjoy authentic Japanese head spa treatments from our anchor salon — an exclusive perk of our location.",
   },
   {
     number: "04",
     title: "Flexible Scheduling",
+    icon: <CalendarDays className="h-7 w-7" />,
     description:
       "Choose from day pass, part-time, or full-time plans. Full-time renters enjoy 24/7 access to their suite.",
   },
@@ -90,6 +95,25 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* By the Numbers */}
+      <section className="px-4 py-16">
+        <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-3">
+          {[
+            { icon: <Gem className="h-6 w-6" />, stat: "Premium", label: "Fully Furnished Suites" },
+            { icon: <Users className="h-6 w-6" />, stat: "Independent", label: "Be Your Own Boss" },
+            { icon: <Award className="h-6 w-6" />, stat: "Trusted", label: "Backed by Jade Salon" },
+          ].map((item) => (
+            <div key={item.label} className="animate-fade-in-up flex flex-col items-center gap-3 rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-gold/15 to-gold-light/10 text-gold">
+                {item.icon}
+              </div>
+              <span className="font-serif text-2xl font-bold text-green-deep">{item.stat}</span>
+              <span className="text-sm text-gray-500">{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Jade Salon */}
       <section className="relative bg-gray-light px-4 py-20 sm:py-28 overflow-hidden">
         {/* Subtle decorative dots */}
@@ -116,18 +140,14 @@ export default function AboutPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 font-semibold text-gold hover:text-gold-light transition-colors"
                 >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                  </svg>
+                  <LinkIcon className="w-4 h-4" />
                   jadesalonofatlanta.com
                 </a>
                 <a
                   href={`tel:${JADE_SALON.phone}`}
                   className="inline-flex items-center gap-2 text-gray-500 hover:text-green-deep transition-colors"
                 >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
+                  <Phone className="w-4 h-4" />
                   {JADE_SALON.phone}
                 </a>
               </div>
@@ -173,6 +193,9 @@ export default function AboutPage() {
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold to-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
                 <div className="relative">
+                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-gold/15 to-gold-light/10 text-gold">
+                    {item.icon}
+                  </div>
                   <h3 className="font-serif text-xl font-bold text-green-deep sm:text-2xl">
                     {item.title}
                   </h3>

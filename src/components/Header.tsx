@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Menu } from "lucide-react";
 import { NAV_LINKS, BUSINESS } from "@/lib/constants";
 import MobileMenu from "./MobileMenu";
 
@@ -79,11 +80,7 @@ export default function Header() {
           onClick={() => setMenuOpen(true)}
           aria-label="Open menu"
         >
-          <div className="flex h-5 w-6 flex-col items-center justify-between">
-            <span className="h-0.5 w-full rounded-full bg-gray-700 transition-all duration-300 group-hover:bg-green-deep group-hover:w-5/6" />
-            <span className="h-0.5 w-full rounded-full bg-gray-700 transition-all duration-300 group-hover:bg-gold" />
-            <span className="h-0.5 w-full rounded-full bg-gray-700 transition-all duration-300 group-hover:bg-green-deep group-hover:w-5/6" />
-          </div>
+          <Menu className="h-6 w-6 text-gray-700 transition-colors duration-300 group-hover:text-green-deep" />
         </button>
       </div>
 

@@ -5,6 +5,7 @@ import SectionHeading from "@/components/SectionHeading";
 import ContactInfo from "@/components/ContactInfo";
 import GoogleMap from "@/components/GoogleMap";
 import Button from "@/components/Button";
+import { MapPin, Clock, Car, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -42,6 +43,19 @@ export default function ContactPage() {
                 className="object-cover"
               />
             </div>
+          </div>
+
+          <div className="mb-14 grid gap-4 sm:grid-cols-3">
+            {[
+              { icon: <MapPin className="h-5 w-5" />, text: "Integrity Heights Plaza, off I-285" },
+              { icon: <Clock className="h-5 w-5" />, text: "Full-time renters: 24/7 access" },
+              { icon: <Car className="h-5 w-5" />, text: "Free parking directly in front" },
+            ].map((item) => (
+              <div key={item.text} className="flex items-center gap-3 rounded-xl border border-gray-100 bg-white px-5 py-4 shadow-sm">
+                <span className="text-gold">{item.icon}</span>
+                <span className="text-sm text-gray-600">{item.text}</span>
+              </div>
+            ))}
           </div>
 
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 items-start">

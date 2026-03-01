@@ -1,3 +1,4 @@
+import { ChevronDown } from "lucide-react";
 import { FAQ_ITEMS } from "@/lib/constants";
 
 const delayClasses = [
@@ -22,19 +23,7 @@ export default function FaqAccordion() {
         >
           <summary className="flex cursor-pointer items-center justify-between gap-4 px-7 py-6 text-left font-serif text-[1.05rem] font-semibold text-green-deep transition-colors duration-200 hover:text-green-light [&::-webkit-details-marker]:hidden">
             <span className="leading-snug">{item.question}</span>
-            <svg
-              className="h-5 w-5 shrink-0 text-gold transition-transform duration-300 ease-in-out group-open:rotate-180"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+            <ChevronDown className="h-5 w-5 shrink-0 text-gold transition-transform duration-300 ease-in-out group-open:rotate-180" />
           </summary>
           <div className="border-t border-gray-100 px-7 pb-6 pt-4 text-[0.925rem] leading-relaxed text-gray-600">
             {item.answer}

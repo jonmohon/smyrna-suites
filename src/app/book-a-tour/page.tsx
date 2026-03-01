@@ -3,6 +3,7 @@ import Image from "next/image";
 import Hero from "@/components/Hero";
 import BookTourForm from "@/components/BookTourForm";
 import { BUSINESS } from "@/lib/constants";
+import { Phone, CheckCircle, Shield, Clock, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Book a Tour",
@@ -56,9 +57,7 @@ export default function BookTourPage() {
               <div className="animate-fade-in-up delay-300 mt-10 text-center">
                 <div className="inline-flex items-center gap-3 rounded-full bg-gold-muted px-6 py-3 border border-gold/20">
                   <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gold/10">
-                    <svg className="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
+                    <Phone className="w-4 h-4 text-gold" />
                   </div>
                   <span className="text-sm text-gray-600">
                     Prefer to call?{" "}
@@ -70,6 +69,19 @@ export default function BookTourPage() {
                     </a>
                   </span>
                 </div>
+              </div>
+
+              <div className="animate-fade-in-up delay-400 mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400">
+                {[
+                  { icon: <Shield className="h-4 w-4" />, text: "No obligation" },
+                  { icon: <Clock className="h-4 w-4" />, text: "Response within 24hrs" },
+                  { icon: <CheckCircle className="h-4 w-4" />, text: "Free to tour" },
+                ].map((item) => (
+                  <span key={item.text} className="flex items-center gap-1.5">
+                    <span className="text-gold">{item.icon}</span>
+                    {item.text}
+                  </span>
+                ))}
               </div>
             </div>
 

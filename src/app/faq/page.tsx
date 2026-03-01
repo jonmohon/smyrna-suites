@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import FaqAccordion from "@/components/FaqAccordion";
 import Button from "@/components/Button";
+import { Phone, MessageCircle, HelpCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -38,13 +39,26 @@ export default function FaqPage() {
             <FaqAccordion />
           </div>
 
-          {/* Decorative accent below accordion */}
-          <div className="mt-14 flex items-center justify-center">
-            <div className="h-px flex-1 max-w-24 bg-gradient-to-r from-transparent to-gold/30" />
-            <div className="mx-3 w-1.5 h-1.5 rounded-full bg-gold/40" />
-            <div className="mx-1 w-2 h-2 rounded-full bg-gold/60" />
-            <div className="mx-3 w-1.5 h-1.5 rounded-full bg-gold/40" />
-            <div className="h-px flex-1 max-w-24 bg-gradient-to-l from-transparent to-gold/30" />
+          {/* Still need help? */}
+          <div className="mt-14 grid gap-4 sm:grid-cols-2">
+            <div className="flex items-center gap-4 rounded-xl border border-gray-100 bg-white px-6 py-5 shadow-sm">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gold/15 to-gold-light/10 text-gold">
+                <Phone className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="font-semibold text-green-deep">Call Us</p>
+                <a href="tel:(470) 662-8690" className="text-sm text-gold hover:text-gold-light">(470) 662-8690</a>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 rounded-xl border border-gray-100 bg-white px-6 py-5 shadow-sm">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gold/15 to-gold-light/10 text-gold">
+                <MessageCircle className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="font-semibold text-green-deep">Email Us</p>
+                <a href="mailto:Baldemjsalon@gmail.com" className="text-sm text-gold hover:text-gold-light">Baldemjsalon@gmail.com</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

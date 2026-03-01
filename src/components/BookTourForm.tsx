@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { CheckCircle2, Sparkle, Loader2 } from "lucide-react";
 import { BUSINESS, PROFESSIONS } from "@/lib/constants";
 
 export default function BookTourForm() {
@@ -43,30 +44,14 @@ export default function BookTourForm() {
           <div className="absolute inset-0 animate-pulse-gold rounded-full border-4 border-gold/30" />
           {/* Inner circle */}
           <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-green-deep to-green-light shadow-lg shadow-green-deep/20">
-            <svg
-              className="h-10 w-10 text-white animate-fade-in delay-200"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
+            <CheckCircle2 className="h-10 w-10 text-white animate-fade-in delay-200" />
           </div>
         </div>
 
         {/* Decorative sparkles */}
         <div className="relative mx-auto mb-2 w-fit">
-          <svg className="absolute -left-6 -top-2 h-4 w-4 text-gold animate-pulse-gold delay-100" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2l2.09 6.26L20.18 10l-6.09 1.74L12 18l-2.09-6.26L3.82 10l6.09-1.74z" />
-          </svg>
-          <svg className="absolute -right-8 top-0 h-3 w-3 text-gold/60 animate-pulse-gold delay-300" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2l2.09 6.26L20.18 10l-6.09 1.74L12 18l-2.09-6.26L3.82 10l6.09-1.74z" />
-          </svg>
+          <Sparkle className="absolute -left-6 -top-2 h-4 w-4 text-gold animate-pulse-gold delay-100" />
+          <Sparkle className="absolute -right-8 top-0 h-3 w-3 text-gold/60 animate-pulse-gold delay-300" />
           <h3 className="font-serif text-3xl font-bold text-green-deep">
             Thank You!
           </h3>
@@ -176,10 +161,7 @@ export default function BookTourForm() {
       >
         {status === "sending" ? (
           <span className="inline-flex items-center gap-2">
-            <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" className="opacity-25" />
-              <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" className="opacity-75" />
-            </svg>
+            <Loader2 className="h-4 w-4 animate-spin" />
             Sending...
           </span>
         ) : (

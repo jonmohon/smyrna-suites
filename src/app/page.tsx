@@ -4,28 +4,13 @@ import SectionHeading from "@/components/SectionHeading";
 import AmenityCard from "@/components/AmenityCard";
 import PricingCard from "@/components/PricingCard";
 import { BUSINESS, JADE_SALON, PRICING, AMENITIES, STATS } from "@/lib/constants";
+import { Star, Phone, Clock, ParkingCircle, Wifi, Zap, ArrowDown, ExternalLink, Info, ChevronRight, Sparkles, MapPin, Building2, Shield, Calendar } from "lucide-react";
 
 const statIcons: Record<string, React.ReactNode> = {
-  clock: (
-    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-  ),
-  parking: (
-    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h3a4 4 0 010 8H8V7zm0 8v4" />
-    </svg>
-  ),
-  wifi: (
-    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z" />
-    </svg>
-  ),
-  utilities: (
-    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-    </svg>
-  ),
+  clock: <Clock className="h-8 w-8" />,
+  parking: <ParkingCircle className="h-8 w-8" />,
+  wifi: <Wifi className="h-8 w-8" />,
+  utilities: <Zap className="h-8 w-8" />,
 };
 
 export default function Home() {
@@ -90,9 +75,7 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-4xl">
           {/* Overline badge */}
           <div className="animate-fade-in mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm tracking-wide text-white/80 backdrop-blur-sm">
-            <svg className="h-4 w-4 text-gold" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
+            <Star className="h-4 w-4 text-gold" fill="currentColor" />
             Premium Salon Suites in {BUSINESS.address.city}, {BUSINESS.address.state}
           </div>
 
@@ -127,9 +110,7 @@ export default function Home() {
               href={`tel:${BUSINESS.phone}`}
               className="ml-1 inline-flex items-center gap-1.5 font-semibold text-gold transition-colors hover:text-gold-light"
             >
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-              </svg>
+              <Phone className="h-4 w-4" />
               {BUSINESS.phone}
             </a>
           </p>
@@ -137,9 +118,7 @@ export default function Home() {
           {/* Scroll indicator */}
           <div className="animate-fade-in delay-600 mt-16 flex flex-col items-center gap-2">
             <span className="text-xs uppercase tracking-widest text-white/30">Scroll to explore</span>
-            <svg className="animate-float h-6 w-6 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
-            </svg>
+            <ArrowDown className="h-6 w-6 animate-float text-white/30" />
           </div>
         </div>
       </section>
@@ -159,9 +138,7 @@ export default function Home() {
             <div className="animate-fade-in-up">
               {/* Decorative quotation mark */}
               <div className="mb-6 flex justify-center lg:justify-start">
-                <svg className="h-12 w-12 text-gold/30" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
-                </svg>
+                <Sparkles className="h-10 w-10 text-gold/30" />
               </div>
 
               {/* Thin gold rule */}
@@ -189,9 +166,7 @@ export default function Home() {
               {/* Bottom decorative accent */}
               <div className="mt-10 flex items-center justify-center gap-3 lg:justify-start">
                 <div className="h-px w-12 bg-gold/40" />
-                <svg className="h-4 w-4 text-gold/60" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
+                <Star className="h-4 w-4 text-gold/60" fill="currentColor" />
                 <div className="h-px w-12 bg-gold/40" />
               </div>
             </div>
@@ -206,6 +181,35 @@ export default function Home() {
                 className="rounded-2xl shadow-xl object-cover"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS — Simple 3-step process */}
+      <section className="bg-green-deep px-4 py-24 sm:py-32">
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">Simple Process</p>
+          <h2 className="font-serif text-3xl font-bold text-white sm:text-4xl">How It Works</h2>
+          <span className="accent-line-center mt-4" />
+
+          <div className="mt-16 grid gap-8 sm:grid-cols-3">
+            {[
+              { step: "01", icon: <Phone className="h-8 w-8" />, title: "Book a Tour", desc: "Fill out our quick form or give us a call. We'll schedule a time to show you the space." },
+              { step: "02", icon: <MapPin className="h-8 w-8" />, title: "Choose Your Suite", desc: "Pick the suite and plan that fits your schedule and budget. Day pass, part-time, or full-time." },
+              { step: "03", icon: <Sparkles className="h-8 w-8" />, title: "Move In & Grow", desc: "Bring your tools and start seeing clients. We handle everything else so you can focus on your craft." },
+            ].map((item, i) => (
+              <div key={item.step} className={`animate-fade-in-up delay-${(i + 1) * 100} relative`}>
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border-2 border-gold/30 bg-white/10 text-gold backdrop-blur-sm">
+                  {item.icon}
+                </div>
+                <span className="mb-2 block font-mono text-sm font-bold text-gold/60">{item.step}</span>
+                <h3 className="font-serif text-xl font-bold text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/60">{item.desc}</p>
+                {i < 2 && (
+                  <ChevronRight className="absolute -right-4 top-10 hidden h-6 w-6 text-gold/30 sm:block" />
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -259,9 +263,7 @@ export default function Home() {
           {/* Deposit note */}
           <div className="animate-fade-in-up delay-400 mt-12 text-center">
             <div className="mx-auto inline-flex max-w-lg items-start gap-3 rounded-xl border border-gold/20 bg-gold-muted px-6 py-4">
-              <svg className="mt-0.5 h-5 w-5 shrink-0 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-              </svg>
+              <Info className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
               <p className="text-sm leading-relaxed text-gray-600">
                 <span className="font-semibold text-green-deep">$500 security deposit required.</span>{" "}
                 Full-time renters receive <span className="font-semibold text-gold">1 free week</span> after 6 months of continuous rental.
@@ -302,6 +304,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WHAT'S INCLUDED — Detailed amenities grid */}
+      <section className="px-4 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            title="Everything You Need, Included"
+            subtitle="Focus on your craft — we handle the rest. Every suite comes with these amenities at no extra cost."
+          />
+          <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { icon: <Wifi className="h-6 w-6" />, title: "High-Speed WiFi", desc: "Fast, reliable internet for you and your clients" },
+              { icon: <Zap className="h-6 w-6" />, title: "Utilities Included", desc: "Electric, water, and AC — all covered in your rent" },
+              { icon: <ParkingCircle className="h-6 w-6" />, title: "Free Parking", desc: "Plenty of spaces directly in front of the building" },
+              { icon: <Shield className="h-6 w-6" />, title: "Security System", desc: "24/7 monitored security for your peace of mind" },
+              { icon: <Clock className="h-6 w-6" />, title: "Flexible Hours", desc: "Full-time renters get 24/7 access to their suite" },
+              { icon: <Building2 className="h-6 w-6" />, title: "Private Waiting Area", desc: "A comfortable space for your clients to relax" },
+              { icon: <Calendar className="h-6 w-6" />, title: "Towel Service", desc: "Fresh, clean towels supplied and ready for use" },
+              { icon: <Sparkles className="h-6 w-6" />, title: "Head Spa Access", desc: "Rent our private head spa space by the hour" },
+            ].map((item, i) => (
+              <div
+                key={item.title}
+                className={`animate-fade-in-up delay-${((i % 4) + 1) * 100} group flex items-start gap-4 rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-gold/20 hover:shadow-md`}
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gold/15 to-gold-light/10 text-gold transition-colors duration-300 group-hover:from-gold/25 group-hover:to-gold-light/15">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="font-semibold text-green-deep">{item.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-gray-500">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ================================================================ */}
       {/* ANCHOR SALON — Jade Salon feature section                       */}
       {/* ================================================================ */}
@@ -323,9 +360,7 @@ export default function Home() {
           <div className="animate-fade-in-up mb-12 text-center">
             <div className="mx-auto mb-6 flex items-center justify-center gap-4">
               <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold/60" />
-              <svg className="h-5 w-5 text-gold" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
+              <Star className="h-5 w-5 text-gold" fill="currentColor" />
               <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold/60" />
             </div>
 
@@ -371,18 +406,14 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold-muted px-5 py-2.5 text-sm font-semibold text-gold transition-all hover:border-gold hover:bg-gold hover:text-white"
                   >
-                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                    </svg>
+                    <ExternalLink className="h-4 w-4" />
                     Visit jadesalonofatlanta.com
                   </a>
                   <a
                     href={`tel:${JADE_SALON.phone}`}
                     className="inline-flex items-center gap-1.5 text-sm text-gray-500 transition-colors hover:text-green-deep"
                   >
-                    <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                    </svg>
+                    <Phone className="h-3.5 w-3.5" />
                     {JADE_SALON.phone}
                   </a>
                 </div>
@@ -393,52 +424,66 @@ export default function Home() {
       </section>
 
       {/* ================================================================ */}
-      {/* CTA BANNER — Gold gradient with compelling call-to-action        */}
+      {/* CTA BANNER — Full-bleed image with compelling call-to-action     */}
       {/* ================================================================ */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-gold to-gold-light px-4 py-20 text-center sm:py-24">
-        {/* Decorative background shapes */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <svg className="absolute -left-20 -top-20 h-[300px] w-[300px] opacity-[0.08]" viewBox="0 0 300 300">
-            <circle cx="150" cy="150" r="140" fill="none" stroke="white" strokeWidth="2" />
-            <circle cx="150" cy="150" r="100" fill="none" stroke="white" strokeWidth="1.5" />
-          </svg>
-          <svg className="absolute -bottom-16 -right-16 h-[250px] w-[250px] opacity-[0.08]" viewBox="0 0 250 250">
-            <circle cx="125" cy="125" r="115" fill="none" stroke="white" strokeWidth="2" />
-          </svg>
-        </div>
+      <section className="relative overflow-hidden px-4 py-28 text-center sm:py-36">
+        {/* Background image */}
+        <Image
+          src="/images/stylist-working.jpg"
+          alt="Stylist at work in a salon suite"
+          fill
+          className="object-cover"
+        />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/65" />
 
-        {/* Shimmer effect */}
-        <div className="animate-shimmer absolute inset-0" />
+        {/* Decorative gold corner brackets */}
+        <div className="pointer-events-none absolute left-6 top-6 h-16 w-16 border-l-2 border-t-2 border-gold/30 sm:left-12 sm:top-12 sm:h-24 sm:w-24" />
+        <div className="pointer-events-none absolute bottom-6 right-6 h-16 w-16 border-b-2 border-r-2 border-gold/30 sm:bottom-12 sm:right-12 sm:h-24 sm:w-24" />
 
-        <div className="relative z-10 mx-auto max-w-2xl">
+        <div className="relative z-10 mx-auto max-w-3xl">
           <div className="animate-fade-in-up">
-            <h2 className="font-serif text-4xl font-bold text-white sm:text-5xl">
-              Ready to See Your New Suite?
+            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold backdrop-blur-sm">
+              <Sparkles className="h-3.5 w-3.5" />
+              Limited Suites Available
+            </span>
+            <h2 className="font-serif text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+              Ready to See Your<br />
+              <span className="gold-gradient-text">New Suite?</span>
             </h2>
-            <p className="mx-auto mt-5 max-w-md text-lg text-white/80">
-              Schedule a tour today and take the first step toward your own independent beauty business.
+            <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-white/70">
+              Walk through our fully furnished suites, meet the team, and see why independent beauty professionals choose Smyrna Salon Suites.
             </p>
           </div>
 
-          <div className="animate-fade-in-up delay-200 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button href="/book-a-tour" variant="secondary" className="px-9 py-4 text-base shadow-lg">
-              Book a Tour
+          <div className="animate-fade-in-up delay-200 mt-10 flex flex-col items-center justify-center gap-5 sm:flex-row">
+            <Button href="/book-a-tour" variant="primary" className="px-10 py-4 text-base">
+              Schedule a Free Tour
             </Button>
             <a
               href={`tel:${BUSINESS.phone}`}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-white/90 transition-colors hover:text-white"
+              className="group inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-gold/40 hover:bg-white/15"
             >
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-              </svg>
-              Or call {BUSINESS.phone}
+              <Phone className="h-4 w-4 text-gold" />
+              Call {BUSINESS.phone}
             </a>
           </div>
 
-          {/* Address line */}
-          <p className="animate-fade-in delay-400 mt-8 text-xs tracking-wide text-white/50">
-            {BUSINESS.address.full}
-          </p>
+          {/* Trust row */}
+          <div className="animate-fade-in-up delay-400 mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-white/50">
+            <span className="flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5 text-gold/70" />
+              {BUSINESS.plaza}
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Clock className="h-3.5 w-3.5 text-gold/70" />
+              Tours 7 days a week
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Shield className="h-3.5 w-3.5 text-gold/70" />
+              No obligation
+            </span>
+          </div>
         </div>
       </section>
     </>
