@@ -309,7 +309,105 @@ details summary::marker {
   content: '';
 }
 
+/* ---- Ken Burns slow zoom ---- */
+@keyframes ken-burns {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 20s ease-in-out alternate infinite;
+}
+
+/* ---- Vignette overlay ---- */
+.vignette {
+  position: relative;
+}
+
+.vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
+}
+
 /* ---- Smooth image reveal ---- */
 img {
   transition: opacity 0.4s ease;
+}
+
+/* ================================================================ */
+/* SCROLL REVEAL SYSTEM                                             */
+/* ================================================================ */
+
+/* Base: hidden state */
+.scroll-reveal {
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Variant starting transforms */
+.scroll-reveal--fade-up         { transform: translateY(32px); }
+.scroll-reveal--fade-in         { transform: none; }
+.scroll-reveal--slide-left      { transform: translateX(-40px); }
+.scroll-reveal--slide-right     { transform: translateX(40px); }
+.scroll-reveal--scale-in        { transform: scale(0.92); }
+
+/* Revealed state: all variants resolve to the same end state */
+.scroll-reveal[data-revealed="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ================================================================ */
+/* SCROLL PROGRESS BAR                                              */
+/* ================================================================ */
+
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 9999;
+  pointer-events: none;
+  transform-origin: left;
+  transform: scaleX(var(--scroll, 0));
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+
+/* ================================================================ */
+/* REDUCED MOTION                                                   */
+/* ================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all scroll reveal transitions */
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Hide progress bar */
+  .scroll-progress-bar {
+    display: none;
+  }
+
+  /* Kill load-based animations too */
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-slide-left,
+  .animate-slide-right,
+  .animate-scale-in,
+  .animate-float,
+  .animate-shimmer,
+  .animate-gradient,
+  .animate-ken-burns,
+  .animate-pulse-gold {
+    animation: none !important;
+  }
 }

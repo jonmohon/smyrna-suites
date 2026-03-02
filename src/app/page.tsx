@@ -3,6 +3,8 @@ import Button from "@/components/Button";
 import SectionHeading from "@/components/SectionHeading";
 import AmenityCard from "@/components/AmenityCard";
 import PricingCard from "@/components/PricingCard";
+import ScrollReveal from "@/components/ScrollReveal";
+import ParallaxImage from "@/components/ParallaxImage";
 import { BUSINESS, JADE_SALON, PRICING, AMENITIES, STATS } from "@/lib/constants";
 import { Star, Phone, Clock, ParkingCircle, Wifi, Zap, ArrowDown, ExternalLink, Info, ChevronRight, Sparkles, MapPin, Building2, Shield, Calendar } from "lucide-react";
 
@@ -18,15 +20,18 @@ export default function Home() {
     <>
       {/* ================================================================ */}
       {/* HERO — Full viewport, animated gradient, decorative SVG shapes  */}
+      {/* Keep load-based animations (above the fold)                     */}
       {/* ================================================================ */}
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-black via-[#111111] to-[#0a0a0a] px-4 text-center text-white">
-        {/* Real photograph background */}
-        <Image
+        {/* Real photograph background with parallax */}
+        <ParallaxImage
           src="/images/hero-bg.jpg"
           alt="Salon interior"
           fill
           className="object-cover opacity-50"
           priority
+          speed={0.08}
+          containerClassName="absolute inset-0"
         />
 
         {/* Animated gradient overlay */}
@@ -71,7 +76,7 @@ export default function Home() {
         {/* Subtle shimmer overlay */}
         <div className="animate-shimmer absolute inset-0" />
 
-        {/* Hero content */}
+        {/* Hero content — keeps load-based animations */}
         <div className="relative z-10 mx-auto max-w-4xl">
           {/* Overline badge */}
           <div className="animate-fade-in mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm tracking-wide text-white/80 backdrop-blur-sm">
@@ -135,7 +140,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Left column — text */}
-            <div className="animate-fade-in-up">
+            <ScrollReveal variant="fade-up">
               {/* Decorative quotation mark */}
               <div className="mb-6 flex justify-center lg:justify-start">
                 <Sparkles className="h-10 w-10 text-gold/30" />
@@ -169,10 +174,10 @@ export default function Home() {
                 <Star className="h-4 w-4 text-gold/60" fill="currentColor" />
                 <div className="h-px w-12 bg-gold/40" />
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right column — image */}
-            <div className="animate-fade-in-up delay-200">
+            <ScrollReveal variant="fade-up" delay={200}>
               <Image
                 src="/images/salon-interior.jpg"
                 alt="Premium salon suite interior with styling chairs"
@@ -180,7 +185,75 @@ export default function Home() {
                 height={400}
                 className="rounded-2xl shadow-xl object-cover"
               />
-            </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================ */}
+      {/* SPLIT-SCREEN — Full-bleed editorial section                    */}
+      {/* ================================================================ */}
+      {/* Mobile: stacked image then content. Desktop: true 50/50 split */}
+      <section className="w-full overflow-hidden">
+        {/* Mobile image — visible, stacked on top */}
+        <div className="relative w-full aspect-[4/3] lg:hidden">
+          <Image
+            src="/images/salon-suite.jpg"
+            alt="Premium private salon suite interior"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        <div className="relative lg:flex lg:min-h-[80vh]">
+          {/* Left — full-bleed image with parallax (desktop only) */}
+          <div className="hidden lg:block lg:w-1/2 relative">
+            <ParallaxImage
+              src="/images/salon-suite.jpg"
+              alt="Premium private salon suite interior"
+              fill
+              className="object-cover"
+              speed={0.12}
+              containerClassName="absolute inset-0"
+            />
+            {/* Subtle right-edge fade so image meets content cleanly */}
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
+          </div>
+
+          {/* Right — content */}
+          <div className="w-full lg:w-1/2 flex items-center bg-white">
+            <ScrollReveal variant="fade-up" className="px-6 sm:px-12 lg:px-16 xl:px-24 py-16 sm:py-20 lg:py-0 max-w-xl mx-auto lg:mx-0">
+              {/* Accent */}
+              <div className="h-px w-16 bg-gradient-to-r from-gold to-gold-light mb-8" />
+
+              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">
+                Your Space, Your Rules
+              </p>
+
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-bold leading-snug text-green-deep">
+                Private Suites Built for Independence
+              </h2>
+
+              <p className="mt-6 text-lg leading-relaxed text-gray-600">
+                Every suite is fully furnished, lockable, and move-in ready. Set your own hours, set your own prices, and build your brand in a premium space designed around you.
+              </p>
+
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <Button href="/book-a-tour" variant="primary" className="px-8 py-3">
+                  Book a Tour
+                </Button>
+                <Button href="#pricing" variant="outline" className="px-8 py-3">
+                  View Pricing
+                </Button>
+              </div>
+
+              {/* Bottom accent */}
+              <div className="mt-12 flex items-center gap-3">
+                <div className="h-px w-8 bg-gold/40" />
+                <Star className="h-3.5 w-3.5 text-gold/50" fill="currentColor" />
+                <div className="h-px w-8 bg-gold/40" />
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -250,9 +323,11 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 mx-auto max-w-5xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">Simple Process</p>
-          <h2 className="font-serif text-3xl font-bold text-white sm:text-4xl">How It Works</h2>
-          <span className="accent-line-center mt-4" />
+          <ScrollReveal variant="fade-up">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">Simple Process</p>
+            <h2 className="font-serif text-3xl font-bold text-white sm:text-4xl">How It Works</h2>
+            <span className="accent-line-center mt-4" />
+          </ScrollReveal>
 
           <div className="mt-16 grid gap-8 sm:grid-cols-3">
             {[
@@ -260,7 +335,7 @@ export default function Home() {
               { step: "02", icon: <MapPin className="h-8 w-8" />, title: "Choose Your Suite", desc: "Pick the suite and plan that fits your schedule and budget. Day pass, part-time, or full-time." },
               { step: "03", icon: <Sparkles className="h-8 w-8" />, title: "Move In & Grow", desc: "Bring your tools and start seeing clients. We handle everything else so you can focus on your craft." },
             ].map((item, i) => (
-              <div key={item.step} className={`animate-fade-in-up delay-${(i + 1) * 100} relative`}>
+              <ScrollReveal key={item.step} variant="fade-up" delay={(i + 1) * 100}>
                 <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border-2 border-gold/30 bg-white/10 text-gold shadow-lg shadow-black/10 backdrop-blur-sm transition-transform duration-300 hover:scale-110">
                   {item.icon}
                 </div>
@@ -270,7 +345,7 @@ export default function Home() {
                 {i < 2 && (
                   <ChevronRight className="absolute -right-4 top-10 hidden h-6 w-6 text-gold/30 sm:block" />
                 )}
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -281,22 +356,48 @@ export default function Home() {
       {/* ================================================================ */}
       <section className="relative bg-gray-light px-4 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl">
-          <div className="animate-fade-in-up">
-            <SectionHeading
-              title="Why Choose Us"
-              subtitle="Everything you need to build your independent beauty business — all under one roof."
-            />
-          </div>
+          <SectionHeading
+            title="Why Choose Us"
+            subtitle="Everything you need to build your independent beauty business — all under one roof."
+          />
           <div className="mt-4 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {AMENITIES.map((amenity, i) => (
-              <div
+              <ScrollReveal
                 key={amenity.title}
-                className={`animate-fade-in-up hover-lift delay-${(i + 1) * 100}`}
+                variant="fade-up"
+                delay={(i + 1) * 100}
+                className="hover-lift"
               >
                 <AmenityCard {...amenity} />
-              </div>
+              </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ================================================================ */}
+      {/* INTERSTITIAL — Full-bleed atmospheric photo break               */}
+      {/* ================================================================ */}
+      <section className="relative w-full h-[50vh] min-h-[320px] overflow-hidden vignette">
+        <ParallaxImage
+          src="/images/head-spa.jpg"
+          alt="Japanese head spa treatment"
+          fill
+          className="object-cover animate-ken-burns"
+          speed={0.15}
+          containerClassName="absolute inset-0"
+        />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
+
+        {/* Centered accent + caption */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+          {/* Gold accent line */}
+          <div className="h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent mb-4" />
+          <p className="text-sm tracking-[0.2em] uppercase text-white/70 font-light">
+            Authentic Head Spa Treatments Available On-Site
+          </p>
+          <div className="h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent mt-4" />
         </div>
       </section>
 
@@ -305,25 +406,25 @@ export default function Home() {
       {/* ================================================================ */}
       <section id="pricing" className="scroll-mt-20 px-4 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl">
-          <div className="animate-fade-in-up">
-            <SectionHeading
-              title="Simple, Transparent Pricing"
-              subtitle="No hidden fees. WiFi, utilities, and parking included in every plan."
-            />
-          </div>
+          <SectionHeading
+            title="Simple, Transparent Pricing"
+            subtitle="No hidden fees. WiFi, utilities, and parking included in every plan."
+          />
           <div className="mt-4 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {PRICING.map((tier, i) => (
-              <div
+              <ScrollReveal
                 key={tier.name}
-                className={`animate-fade-in-up hover-lift delay-${(i + 1) * 100}`}
+                variant="fade-up"
+                delay={(i + 1) * 100}
+                className="hover-lift"
               >
                 <PricingCard {...tier} />
-              </div>
+              </ScrollReveal>
             ))}
           </div>
 
           {/* Deposit note */}
-          <div className="animate-fade-in-up delay-400 mt-12 text-center">
+          <ScrollReveal variant="fade-up" delay={400} className="mt-12 text-center">
             <div className="mx-auto inline-flex max-w-lg items-start gap-3 rounded-xl border border-gold/20 bg-gold-muted px-6 py-4">
               <Info className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
               <p className="text-sm leading-relaxed text-gray-600">
@@ -331,7 +432,7 @@ export default function Home() {
                 Full-time renters receive <span className="font-semibold text-gold">1 free week</span> after 6 months of continuous rental.
               </p>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -350,9 +451,11 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-5xl">
           <div className="grid grid-cols-2 gap-8 sm:gap-10 lg:grid-cols-4">
             {STATS.map((stat, i) => (
-              <div
+              <ScrollReveal
                 key={stat.label}
-                className={`animate-fade-in-up delay-${(i + 1) * 100} flex flex-col items-center gap-3 text-center`}
+                variant="fade-up"
+                delay={(i + 1) * 100}
+                className="flex flex-col items-center gap-3 text-center"
               >
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-gold backdrop-blur-sm transition-transform duration-300 hover:scale-110">
                   {statIcons[stat.icon]}
@@ -360,7 +463,7 @@ export default function Home() {
                 <span className="text-sm font-semibold tracking-wide text-white sm:text-base">
                   {stat.label}
                 </span>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -384,9 +487,11 @@ export default function Home() {
               { icon: <Calendar className="h-6 w-6" />, title: "Towel Service", desc: "Fresh, clean towels supplied and ready for use" },
               { icon: <Sparkles className="h-6 w-6" />, title: "Head Spa Access", desc: "Rent our private head spa space by the hour" },
             ].map((item, i) => (
-              <div
+              <ScrollReveal
                 key={item.title}
-                className={`animate-fade-in-up delay-${((i % 4) + 1) * 100} group flex items-start gap-4 rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-gold/20 hover:shadow-md`}
+                variant="fade-up"
+                delay={((i % 4) + 1) * 100}
+                className="group flex items-start gap-4 rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-gold/20 hover:shadow-md"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gold/15 to-gold-light/10 text-gold transition-colors duration-300 group-hover:from-gold/25 group-hover:to-gold-light/15">
                   {item.icon}
@@ -395,14 +500,14 @@ export default function Home() {
                   <h3 className="font-semibold text-green-deep">{item.title}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-gray-500">{item.desc}</p>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* ================================================================ */}
-      {/* ANCHOR SALON — Jade Salon feature section                       */}
+      {/* ANCHOR SALON — Overlapping editorial card layout                */}
       {/* ================================================================ */}
       <section className="relative overflow-hidden bg-green-muted px-4 py-24 sm:py-32">
         {/* Subtle decorative corner elements */}
@@ -419,7 +524,7 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-6xl">
           {/* Section header */}
-          <div className="animate-fade-in-up mb-12 text-center">
+          <ScrollReveal variant="fade-up" className="mb-12 text-center">
             <div className="mx-auto mb-6 flex items-center justify-center gap-4">
               <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold/60" />
               <Star className="h-5 w-5 text-gold" fill="currentColor" />
@@ -435,33 +540,37 @@ export default function Home() {
             </h2>
 
             <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gold" />
-          </div>
+          </ScrollReveal>
 
-          {/* 2-column: image + card */}
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Left column — plaza image */}
-            <div className="animate-slide-left">
-              <Image
+          {/* Overlapping editorial layout */}
+          <ScrollReveal variant="fade-up" delay={200} className="relative">
+            {/* Image — takes ~65% width on desktop, with parallax */}
+            <div className="lg:w-[65%]">
+              <ParallaxImage
                 src="/images/plaza-exterior.png"
-                alt="Smyrna Salon Suites plaza exterior at Highlands Plaza"
-                width={600}
-                height={400}
-                className="rounded-2xl shadow-xl object-cover"
+                alt="Smyrna Salon Suites plaza exterior at Integrity Heights Plaza"
+                width={800}
+                height={500}
+                className="rounded-2xl object-cover w-full shadow-lg"
+                speed={0.1}
               />
             </div>
 
-            {/* Right column — text card */}
-            <div className="animate-slide-right delay-200">
-              <div className="rounded-2xl border border-gold/20 bg-white p-8 shadow-sm sm:p-10">
+            {/* Overlapping card — positioned to overlap the image on desktop */}
+            <div className="relative lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 lg:w-[45%] mt-[-2rem] mx-4 lg:mt-0 lg:mx-0 z-10">
+              <div className="rounded-2xl border border-gold/20 bg-white p-8 sm:p-10 shadow-xl">
+                {/* Gold top accent */}
+                <div className="h-0.5 w-12 bg-gradient-to-r from-gold to-gold-light mb-6" />
+
                 <p className="text-base leading-relaxed text-gray-600">
                   {JADE_SALON.description} As a suite renter, you benefit from the
                   established foot traffic and reputation that {JADE_SALON.name} brings
                   to our location.
                 </p>
 
-                <div className="mx-auto my-6 h-px w-20 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+                <div className="my-6 h-px w-full bg-gradient-to-r from-gold/20 via-gold/10 to-transparent" />
 
-                <div className="flex flex-col items-center gap-3">
+                <div className="flex flex-col items-start gap-3">
                   <a
                     href={JADE_SALON.website}
                     target="_blank"
@@ -481,7 +590,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -489,12 +598,14 @@ export default function Home() {
       {/* CTA BANNER — Full-bleed image with compelling call-to-action     */}
       {/* ================================================================ */}
       <section className="relative overflow-hidden px-4 py-28 text-center sm:py-36">
-        {/* Background image */}
-        <Image
+        {/* Background image with parallax */}
+        <ParallaxImage
           src="/images/stylist-working.jpg"
           alt="Stylist at work in a salon suite"
           fill
           className="object-cover"
+          speed={0.1}
+          containerClassName="absolute inset-0"
         />
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/65" />
@@ -504,7 +615,7 @@ export default function Home() {
         <div className="pointer-events-none absolute bottom-6 right-6 h-16 w-16 border-b-2 border-r-2 border-gold/30 sm:bottom-12 sm:right-12 sm:h-24 sm:w-24" />
 
         <div className="relative z-10 mx-auto max-w-3xl">
-          <div className="animate-fade-in-up">
+          <ScrollReveal variant="fade-up">
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold backdrop-blur-sm">
               <Sparkles className="h-3.5 w-3.5" />
               Limited Suites Available
@@ -516,9 +627,9 @@ export default function Home() {
             <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-white/70">
               Walk through our fully furnished suites, meet the team, and see why independent beauty professionals choose Smyrna Salon Suites.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="animate-fade-in-up delay-200 mt-10 flex flex-col items-center justify-center gap-5 sm:flex-row">
+          <ScrollReveal variant="fade-up" delay={200} className="mt-10 flex flex-col items-center justify-center gap-5 sm:flex-row">
             <Button href="/book-a-tour" variant="primary" className="px-10 py-4 text-base">
               Schedule a Free Tour
             </Button>
@@ -529,10 +640,10 @@ export default function Home() {
               <Phone className="h-4 w-4 text-gold" />
               Call {BUSINESS.phone}
             </a>
-          </div>
+          </ScrollReveal>
 
           {/* Trust row */}
-          <div className="animate-fade-in-up delay-400 mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-white/50">
+          <ScrollReveal variant="fade-up" delay={400} className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-white/50">
             <span className="flex items-center gap-1.5">
               <MapPin className="h-3.5 w-3.5 text-gold/70" />
               {BUSINESS.plaza}
@@ -545,7 +656,7 @@ export default function Home() {
               <Shield className="h-3.5 w-3.5 text-gold/70" />
               No obligation
             </span>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </>

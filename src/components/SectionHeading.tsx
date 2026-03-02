@@ -1,3 +1,5 @@
+import ScrollReveal from "@/components/ScrollReveal";
+
 type SectionHeadingProps = {
   title: string;
   subtitle?: string;
@@ -10,7 +12,7 @@ export default function SectionHeading({
   className = "",
 }: SectionHeadingProps) {
   return (
-    <div className={`mb-16 text-center animate-fade-in-up ${className}`}>
+    <ScrollReveal variant="fade-up" className={`mb-16 text-center ${className}`}>
       <h2 className="green-gradient-text font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.75rem]">
         {title}
       </h2>
@@ -20,6 +22,6 @@ export default function SectionHeading({
           {subtitle}
         </p>
       )}
-    </div>
+    </ScrollReveal>
   );
 }

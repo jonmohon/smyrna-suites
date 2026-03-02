@@ -18,7 +18,7 @@ export default function AmenityCard({
   icon,
 }: AmenityCardProps) {
   return (
-    <div className="animate-fade-in-up hover-lift rounded-2xl border border-gold/10 bg-white p-8 text-center shadow-lg transition-all duration-300">
+    <div className="rounded-2xl border border-gold/10 bg-white p-8 text-center shadow-lg transition-all duration-300">
       {/* Icon with gold gradient background */}
       <div className="mx-auto mb-6 flex h-18 w-18 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/20 via-gold/10 to-gold-light/5 text-gold shadow-sm">
         {iconMap[icon] || iconMap.chair}

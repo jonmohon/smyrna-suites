@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import SectionHeading from "@/components/SectionHeading";
 import Button from "@/components/Button";
+import ScrollReveal from "@/components/ScrollReveal";
+import ParallaxImage from "@/components/ParallaxImage";
 import { BUSINESS, JADE_SALON } from "@/lib/constants";
 import { HeartHandshake, Globe, Droplets, CalendarDays, Star, ExternalLink, Phone, Link as LinkIcon, Award, Users, Gem } from "lucide-react";
 
@@ -45,14 +47,17 @@ export default function AboutPage() {
   return (
     <>
       {/* Custom About Hero — full image with layered content */}
+      {/* Keep load-based animations (above the fold) */}
       <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-black px-4 text-white">
-        {/* Background image */}
-        <Image
+        {/* Background image with parallax */}
+        <ParallaxImage
           src="/images/salon-interior.jpg"
           alt="Inside a premium salon suite"
           fill
           className="object-cover opacity-40"
           priority
+          speed={0.08}
+          containerClassName="absolute inset-0"
         />
 
         {/* Gradient overlays for depth */}
@@ -84,7 +89,7 @@ export default function AboutPage() {
           />
         </div>
 
-        {/* Content */}
+        {/* Content — keeps load-based animations */}
         <div className="relative z-10 mx-auto max-w-6xl py-24 sm:py-32">
           <div className="max-w-2xl">
             {/* Badge */}
@@ -130,12 +135,12 @@ export default function AboutPage() {
         <div className="absolute bottom-0 left-0 w-56 h-56 bg-green-muted rounded-full opacity-40 blur-3xl translate-y-1/2 -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-6xl">
-          <div className="animate-fade-in-up mb-8 text-center">
+          <ScrollReveal variant="fade-up" className="mb-8 text-center">
             <SectionHeading title="Our Story" />
-          </div>
+          </ScrollReveal>
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Left column — text */}
-            <div className="animate-fade-in-up">
+            <ScrollReveal variant="fade-up">
               <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
                 <p>
                   {BUSINESS.name} was founded with a simple vision: to give
@@ -152,10 +157,10 @@ export default function AboutPage() {
                 </p>
               </div>
               <span className="accent-line-center mt-10 lg:!mx-0 lg:after:left-0 lg:after:translate-x-0" />
-            </div>
+            </ScrollReveal>
 
             {/* Right column — image */}
-            <div className="animate-slide-right delay-200">
+            <ScrollReveal variant="slide-right" delay={200}>
               <Image
                 src="/images/stylist-working.jpg"
                 alt="Professional stylist at work in a salon suite"
@@ -163,7 +168,7 @@ export default function AboutPage() {
                 height={400}
                 className="rounded-2xl shadow-xl object-cover"
               />
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -175,15 +180,72 @@ export default function AboutPage() {
             { icon: <Gem className="h-6 w-6" />, stat: "Premium", label: "Fully Furnished Suites" },
             { icon: <Users className="h-6 w-6" />, stat: "Independent", label: "Be Your Own Boss" },
             { icon: <Award className="h-6 w-6" />, stat: "Trusted", label: "Backed by Jade Salon" },
-          ].map((item) => (
-            <div key={item.label} className="animate-fade-in-up flex flex-col items-center gap-3 rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm">
+          ].map((item, i) => (
+            <ScrollReveal key={item.label} variant="fade-up" delay={i * 100} className="flex flex-col items-center gap-3 rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-gold/15 to-gold-light/10 text-gold">
                 {item.icon}
               </div>
               <span className="font-serif text-2xl font-bold text-green-deep">{item.stat}</span>
               <span className="text-sm text-gray-500">{item.label}</span>
-            </div>
+            </ScrollReveal>
           ))}
+        </div>
+      </section>
+
+      {/* Our Space — Staggered offset editorial gallery */}
+      <section className="px-4 py-20 sm:py-28 overflow-hidden">
+        <div className="mx-auto max-w-6xl">
+          <SectionHeading
+            title="Our Space"
+            subtitle="A premium environment designed for independent beauty professionals."
+          />
+
+          {/* 12-column staggered grid */}
+          <div className="grid grid-cols-12 gap-4 sm:gap-6">
+            {/* Large — salon interior, 7 cols, with parallax */}
+            <ScrollReveal variant="fade-up" className="col-span-12 sm:col-span-7">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                <ParallaxImage
+                  src="/images/salon-interior.jpg"
+                  alt="Premium salon suite interior with styling stations"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                  speed={0.06}
+                  containerClassName="absolute inset-0"
+                />
+              </div>
+            </ScrollReveal>
+
+            {/* Medium — barber chair, 5 cols, offset down */}
+            <ScrollReveal variant="fade-up" delay={200} className="col-span-12 sm:col-span-5 sm:mt-16">
+              <div className="relative aspect-[4/3] sm:aspect-[3/4] overflow-hidden rounded-2xl">
+                <Image
+                  src="/images/barber-chair.jpg"
+                  alt="Professional barber chair in a private suite"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+            </ScrollReveal>
+
+            {/* Wide — head spa, centered below, overlapping upward */}
+            <ScrollReveal variant="fade-up" delay={300} className="col-span-12 sm:col-span-8 sm:col-start-3 sm:-mt-16">
+              <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-xl">
+                <Image
+                  src="/images/head-spa.jpg"
+                  alt="Japanese head spa treatment room"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                />
+                {/* Subtle caption overlay */}
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/50 to-transparent p-6">
+                  <p className="text-sm tracking-[0.15em] uppercase text-white/80">
+                    Head spa treatments by Jade Salon
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
@@ -197,7 +259,7 @@ export default function AboutPage() {
             title="Jade Salon of Atlanta & Head Spa"
             subtitle="Our Anchor Salon"
           />
-          <div className="animate-fade-in-up delay-200 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <ScrollReveal variant="fade-up" delay={200} className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Left column — text card */}
             <div className="rounded-2xl bg-white p-8 sm:p-10 shadow-sm border-l-4 border-gold">
               <p className="text-gray-600 text-lg leading-relaxed">
@@ -227,7 +289,7 @@ export default function AboutPage() {
             </div>
 
             {/* Right column — building image */}
-            <div className="animate-slide-right delay-300">
+            <ScrollReveal variant="slide-right" delay={300}>
               <Image
                 src="/images/plaza-exterior.png"
                 alt="Highlands Plaza exterior, home of Smyrna Salon Suites"
@@ -235,8 +297,8 @@ export default function AboutPage() {
                 height={400}
                 className="rounded-2xl shadow-xl object-cover"
               />
-            </div>
-          </div>
+            </ScrollReveal>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -253,9 +315,11 @@ export default function AboutPage() {
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:gap-8">
             {differentiators.map((item, index) => (
-              <div
+              <ScrollReveal
                 key={item.title}
-                className={`group hover-lift animate-fade-in-up delay-${(index + 1) * 100} rounded-2xl border border-gray-100 bg-white p-8 sm:p-10 shadow-sm relative overflow-hidden`}
+                variant="fade-up"
+                delay={(index + 1) * 100}
+                className="group hover-lift rounded-2xl border border-gray-100 bg-white p-8 sm:p-10 shadow-sm relative overflow-hidden"
               >
                 {/* Gold number accent */}
                 <span className="absolute top-6 right-6 font-serif text-5xl font-bold text-gold/10 group-hover:text-gold/20 transition-colors duration-300 select-none">
@@ -276,7 +340,7 @@ export default function AboutPage() {
                     {item.description}
                   </p>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -292,7 +356,7 @@ export default function AboutPage() {
         <div className="absolute bottom-8 right-8 w-48 h-48 rounded-full border border-gold/10" />
         <div className="absolute top-1/2 right-1/4 w-20 h-20 rounded-full border border-gold/5" />
 
-        <div className="relative mx-auto max-w-2xl animate-fade-in-up">
+        <ScrollReveal variant="fade-up" className="relative mx-auto max-w-2xl">
           <h2 className="font-serif text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             Ready to Join Our Community?
           </h2>
@@ -307,7 +371,7 @@ export default function AboutPage() {
               Contact Us
             </Button>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
     </>
   );

@@ -3,6 +3,7 @@ import { Inter, Cardo } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CanvasCursor from "@/components/CanvasCursor";
+import ScrollEffects from "@/components/ScrollEffects";
 import "./globals.css";
 
 const inter = Inter({
@@ -51,6 +52,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${cardo.variable} antialiased`}>
+        <div className="scroll-progress-bar" aria-hidden="true" />
+        <ScrollEffects />
         <CanvasCursor />
         <Header />
         <main>{children}</main>
