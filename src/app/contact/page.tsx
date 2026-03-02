@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import ContactInfo from "@/components/ContactInfo";
 import GoogleMap from "@/components/GoogleMap";
@@ -16,10 +15,81 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <Hero
-        title="Contact Us"
-        subtitle="We'd love to hear from you. Reach out with questions or stop by for a visit."
-      />
+      {/* Custom Contact Hero */}
+      <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-black px-4 text-white">
+        {/* Background image */}
+        <Image
+          src="/images/plaza-exterior.png"
+          alt="Smyrna Salon Suites at Highlands Plaza"
+          fill
+          className="object-cover opacity-35"
+          priority
+        />
+
+        {/* Gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
+
+        {/* Decorative elements */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div className="absolute left-8 top-8 h-24 w-24 border-l-2 border-t-2 border-gold/25 sm:left-16 sm:top-16 sm:h-32 sm:w-32" />
+          <div className="absolute bottom-8 right-8 h-24 w-24 border-b-2 border-r-2 border-gold/25 sm:bottom-16 sm:right-16 sm:h-32 sm:w-32" />
+
+          {/* Floating ring */}
+          <svg className="animate-float absolute -right-12 top-1/3 h-[250px] w-[250px] opacity-[0.07]" viewBox="0 0 250 250">
+            <circle cx="125" cy="125" r="110" fill="none" stroke="#c5a355" strokeWidth="1.5" strokeDasharray="6 10" />
+          </svg>
+
+          {/* Dot pattern */}
+          <div
+            className="absolute bottom-0 right-0 h-1/2 w-1/4 opacity-[0.04]"
+            style={{
+              backgroundImage: "radial-gradient(circle, #c5a355 1px, transparent 1px)",
+              backgroundSize: "20px 20px",
+            }}
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 mx-auto max-w-6xl py-24 sm:py-32">
+          <div className="max-w-2xl">
+            <div className="animate-fade-in mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm tracking-wide text-white/80 backdrop-blur-sm">
+              <MapPin className="h-4 w-4 text-gold" />
+              Smyrna, GA
+            </div>
+
+            <h1 className="animate-fade-in-up font-serif text-5xl font-bold leading-[1.1] tracking-tight sm:text-6xl lg:text-7xl">
+              <span className="gold-gradient-text">Contact Us</span>
+            </h1>
+
+            <p className="animate-fade-in-up delay-200 mt-6 max-w-xl text-lg leading-relaxed text-white/70 sm:text-xl">
+              We&apos;d love to hear from you. Reach out with questions or stop by for a visit.
+            </p>
+
+            <div className="animate-fade-in-up delay-300 mt-8 h-1 w-20 rounded-full bg-gradient-to-r from-gold to-gold-light" />
+
+            {/* Contact quick actions */}
+            <div className="animate-fade-in-up delay-400 mt-10 flex flex-wrap gap-4">
+              <a
+                href="tel:(470) 662-8690"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-gold/40 hover:bg-white/15"
+              >
+                <Phone className="h-4 w-4 text-gold" />
+                (470) 662-8690
+              </a>
+              <a
+                href="https://maps.google.com/?q=3020+Highlands+Parkway+Suite+G+Smyrna+GA+30082"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-gold/40 hover:bg-white/15"
+              >
+                <MapPin className="h-4 w-4 text-gold" />
+                Get Directions
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section className="relative px-4 py-20 sm:py-28 overflow-hidden">

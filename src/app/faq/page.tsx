@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Hero from "@/components/Hero";
+import Image from "next/image";
 import SectionHeading from "@/components/SectionHeading";
 import FaqAccordion from "@/components/FaqAccordion";
 import Button from "@/components/Button";
-import { Phone, MessageCircle, HelpCircle } from "lucide-react";
+import { Phone, MessageCircle, HelpCircle, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -14,10 +14,84 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <>
-      <Hero
-        title="Frequently Asked Questions"
-        subtitle="Everything you need to know about renting a suite at Smyrna Salon Suites."
-      />
+      {/* Custom FAQ Hero */}
+      <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-black px-4 text-white">
+        {/* Background image */}
+        <Image
+          src="/images/stylist-working.jpg"
+          alt="Professional stylist at work"
+          fill
+          className="object-cover opacity-30"
+          priority
+        />
+
+        {/* Gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
+
+        {/* Decorative elements */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div className="absolute left-8 top-8 h-24 w-24 border-l-2 border-t-2 border-gold/25 sm:left-16 sm:top-16 sm:h-32 sm:w-32" />
+          <div className="absolute bottom-8 right-8 h-24 w-24 border-b-2 border-r-2 border-gold/25 sm:bottom-16 sm:right-16 sm:h-32 sm:w-32" />
+
+          {/* Floating diamond */}
+          <svg className="animate-float absolute right-[15%] top-1/4 h-[180px] w-[180px] opacity-[0.06]" viewBox="0 0 180 180">
+            <rect x="40" y="40" width="100" height="100" fill="none" stroke="#c5a355" strokeWidth="1.5" transform="rotate(45 90 90)" />
+          </svg>
+
+          {/* Dashed arc */}
+          <svg className="absolute -left-8 bottom-1/3 h-[220px] w-[220px] opacity-[0.05]" viewBox="0 0 220 220">
+            <circle cx="110" cy="110" r="100" fill="none" stroke="#c5a355" strokeWidth="1" strokeDasharray="8 14" />
+          </svg>
+
+          {/* Dot pattern */}
+          <div
+            className="absolute left-0 top-0 h-1/2 w-1/3 opacity-[0.03]"
+            style={{
+              backgroundImage: "radial-gradient(circle, #c5a355 1px, transparent 1px)",
+              backgroundSize: "22px 22px",
+            }}
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 mx-auto max-w-6xl py-24 sm:py-32">
+          <div className="max-w-2xl">
+            <div className="animate-fade-in mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm tracking-wide text-white/80 backdrop-blur-sm">
+              <HelpCircle className="h-4 w-4 text-gold" />
+              Got Questions?
+            </div>
+
+            <h1 className="animate-fade-in-up font-serif text-5xl font-bold leading-[1.1] tracking-tight sm:text-6xl lg:text-7xl">
+              <span className="gold-gradient-text">Frequently Asked</span>
+              <br />
+              <span className="text-white">Questions</span>
+            </h1>
+
+            <p className="animate-fade-in-up delay-200 mt-6 max-w-xl text-lg leading-relaxed text-white/70 sm:text-xl">
+              Everything you need to know about renting a suite at Smyrna Salon Suites.
+            </p>
+
+            <div className="animate-fade-in-up delay-300 mt-8 h-1 w-20 rounded-full bg-gradient-to-r from-gold to-gold-light" />
+
+            {/* Quick links */}
+            <div className="animate-fade-in-up delay-400 mt-10 flex flex-wrap items-center gap-6 text-sm text-white/50">
+              <span className="flex items-center gap-1.5">
+                <Sparkles className="h-3.5 w-3.5 text-gold/70" />
+                Pricing &amp; Plans
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Sparkles className="h-3.5 w-3.5 text-gold/70" />
+                Amenities
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Sparkles className="h-3.5 w-3.5 text-gold/70" />
+                Access &amp; Security
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="relative px-4 py-20 sm:py-28 overflow-hidden">
