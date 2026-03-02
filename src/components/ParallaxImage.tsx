@@ -19,14 +19,18 @@ export default function ParallaxImage({
   speed = 0.1,
   containerClassName = "",
   className = "",
+  fill,
   ...imageProps
 }: ParallaxImageProps) {
   const ref = useParallax<HTMLDivElement>(speed);
 
   return (
     <div className={`overflow-hidden ${containerClassName}`}>
-      <div ref={ref}>
-        <Image className={className} {...imageProps} />
+      <div
+        ref={ref}
+        className={fill ? "relative w-full h-full" : undefined}
+      >
+        <Image className={className} fill={fill} {...imageProps} />
       </div>
     </div>
   );

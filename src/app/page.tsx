@@ -335,7 +335,7 @@ export default function Home() {
               { step: "02", icon: <MapPin className="h-8 w-8" />, title: "Choose Your Suite", desc: "Pick the suite and plan that fits your schedule and budget. Day pass, part-time, or full-time." },
               { step: "03", icon: <Sparkles className="h-8 w-8" />, title: "Move In & Grow", desc: "Bring your tools and start seeing clients. We handle everything else so you can focus on your craft." },
             ].map((item, i) => (
-              <ScrollReveal key={item.step} variant="fade-up" delay={(i + 1) * 100}>
+              <ScrollReveal key={item.step} variant="fade-up" delay={(i + 1) * 100} className="relative">
                 <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border-2 border-gold/30 bg-white/10 text-gold shadow-lg shadow-black/10 backdrop-blur-sm transition-transform duration-300 hover:scale-110">
                   {item.icon}
                 </div>

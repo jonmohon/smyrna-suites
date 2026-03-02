@@ -259,34 +259,36 @@ export default function AboutPage() {
             title="Jade Salon of Atlanta & Head Spa"
             subtitle="Our Anchor Salon"
           />
-          <ScrollReveal variant="fade-up" delay={200} className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Left column — text card */}
-            <div className="rounded-2xl bg-white p-8 sm:p-10 shadow-sm border-l-4 border-gold">
-              <p className="text-gray-600 text-lg leading-relaxed">
-                {JADE_SALON.description} As our anchor tenant, Jade Salon brings
-                established clientele and foot traffic that benefits every suite
-                renter in the building. Their renowned head spa treatments are a
-                unique draw that sets our location apart.
-              </p>
-              <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
-                <a
-                  href={JADE_SALON.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-semibold text-gold hover:text-gold-light transition-colors"
-                >
-                  <LinkIcon className="w-4 h-4" />
-                  jadesalonofatlanta.com
-                </a>
-                <a
-                  href={`tel:${JADE_SALON.phone}`}
-                  className="inline-flex items-center gap-2 text-gray-500 hover:text-green-deep transition-colors"
-                >
-                  <Phone className="w-4 h-4" />
-                  {JADE_SALON.phone}
-                </a>
+            <ScrollReveal variant="fade-up" delay={200}>
+              <div className="rounded-2xl bg-white p-8 sm:p-10 shadow-sm border-l-4 border-gold">
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  {JADE_SALON.description} As our anchor tenant, Jade Salon brings
+                  established clientele and foot traffic that benefits every suite
+                  renter in the building. Their renowned head spa treatments are a
+                  unique draw that sets our location apart.
+                </p>
+                <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
+                  <a
+                    href={JADE_SALON.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 font-semibold text-gold hover:text-gold-light transition-colors"
+                  >
+                    <LinkIcon className="w-4 h-4" />
+                    jadesalonofatlanta.com
+                  </a>
+                  <a
+                    href={`tel:${JADE_SALON.phone}`}
+                    className="inline-flex items-center gap-2 text-gray-500 hover:text-green-deep transition-colors"
+                  >
+                    <Phone className="w-4 h-4" />
+                    {JADE_SALON.phone}
+                  </a>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right column — building image */}
             <ScrollReveal variant="slide-right" delay={300}>
@@ -298,7 +300,7 @@ export default function AboutPage() {
                 className="rounded-2xl shadow-xl object-cover"
               />
             </ScrollReveal>
-          </ScrollReveal>
+          </div>
         </div>
       </section>
 

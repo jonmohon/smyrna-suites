@@ -7,12 +7,12 @@ import { useEffect, useRef, type RefObject } from "react";
  * when it scrolls into the viewport. Once revealed, the observer
  * disconnects (reveal is one-shot).
  *
- * @param threshold - Fraction of element visible to trigger (default 0.15)
+ * @param threshold - Fraction of element visible to trigger (default 0.1)
  * @returns ref to attach to the element you want to reveal
  */
 export default function useRevealOnScroll<
   T extends HTMLElement = HTMLDivElement,
->(threshold: number = 0.15): RefObject<T | null> {
+>(threshold: number = 0.1): RefObject<T | null> {
   const ref = useRef<T>(null);
 
   useEffect(() => {
@@ -26,6 +26,16 @@ export default function useRevealOnScroll<
       return;
     }
 
+    // If already in viewport on mount, reveal immediately (no animation)
+    const rect = el.getBoundingClientRect();
+    if (
+      rect.top < window.innerHeight &&
+      rect.bottom > 0
+    ) {
+      el.setAttribute("data-revealed", "true");
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -33,7 +43,7 @@ export default function useRevealOnScroll<
           observer.disconnect();
         }
       },
-      { threshold, rootMargin: "0px 0px -40px 0px" },
+      { threshold, rootMargin: "0px 0px -20px 0px" },
     );
 
     observer.observe(el);
