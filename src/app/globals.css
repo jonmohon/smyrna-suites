@@ -361,6 +361,7 @@ img {
 .scroll-reveal[data-revealed="true"] {
   opacity: 1;
   transform: none;
+  will-change: auto;
 }
 
 /* ================================================================ */

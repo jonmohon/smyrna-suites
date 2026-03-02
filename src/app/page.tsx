@@ -366,7 +366,6 @@ export default function Home() {
                 key={amenity.title}
                 variant="fade-up"
                 delay={(i + 1) * 100}
-                className="hover-lift"
               >
                 <AmenityCard {...amenity} />
               </ScrollReveal>
@@ -416,7 +415,6 @@ export default function Home() {
                 key={tier.name}
                 variant="fade-up"
                 delay={(i + 1) * 100}
-                className="hover-lift"
               >
                 <PricingCard {...tier} />
               </ScrollReveal>
@@ -491,14 +489,15 @@ export default function Home() {
                 key={item.title}
                 variant="fade-up"
                 delay={((i % 4) + 1) * 100}
-                className="group flex items-start gap-4 rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-gold/20 hover:shadow-md"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gold/15 to-gold-light/10 text-gold transition-colors duration-300 group-hover:from-gold/25 group-hover:to-gold-light/15">
-                  {item.icon}
-                </div>
-                <div>
-                  <h3 className="font-semibold text-green-deep">{item.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-gray-500">{item.desc}</p>
+                <div className="group flex items-start gap-4 rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-gold/20 hover:shadow-md">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gold/15 to-gold-light/10 text-gold transition-colors duration-300 group-hover:from-gold/25 group-hover:to-gold-light/15">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-green-deep">{item.title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-gray-500">{item.desc}</p>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}

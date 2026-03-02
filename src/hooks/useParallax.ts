@@ -22,10 +22,10 @@ export default function useParallax<T extends HTMLElement = HTMLDivElement>(
     const el = ref.current;
     if (!el) return;
 
-    // Disable on touch devices
-    const isTouch =
-      "ontouchstart" in window || navigator.maxTouchPoints > 0;
-    if (isTouch) return;
+    // Disable on touch-only devices (allow touchscreen laptops with pointer)
+    const isCoarse = window.matchMedia("(pointer: coarse)").matches;
+    const isFine = window.matchMedia("(pointer: fine)").matches;
+    if (isCoarse && !isFine) return;
 
     // Respect reduced motion preference
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -33,6 +33,9 @@ export default function useParallax<T extends HTMLElement = HTMLDivElement>(
 
     let ticking = false;
     let isVisible = false;
+
+    // Promote to GPU layer once, not on every frame
+    el.style.willChange = "transform";
 
     // Only run parallax when element is in viewport
     const observer = new IntersectionObserver(
@@ -57,7 +60,6 @@ export default function useParallax<T extends HTMLElement = HTMLDivElement>(
       const y = centerOffset * speed * windowHeight * -1;
 
       el.style.transform = `translate3d(0, ${y.toFixed(1)}px, 0)`;
-      el.style.willChange = "transform";
       ticking = false;
     }
 

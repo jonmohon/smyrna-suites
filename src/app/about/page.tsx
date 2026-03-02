@@ -135,9 +135,7 @@ export default function AboutPage() {
         <div className="absolute bottom-0 left-0 w-56 h-56 bg-green-muted rounded-full opacity-40 blur-3xl translate-y-1/2 -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-6xl">
-          <ScrollReveal variant="fade-up" className="mb-8 text-center">
-            <SectionHeading title="Our Story" />
-          </ScrollReveal>
+          <SectionHeading title="Our Story" />
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Left column — text */}
             <ScrollReveal variant="fade-up">
@@ -321,26 +319,27 @@ export default function AboutPage() {
                 key={item.title}
                 variant="fade-up"
                 delay={(index + 1) * 100}
-                className="group hover-lift rounded-2xl border border-gray-100 bg-white p-8 sm:p-10 shadow-sm relative overflow-hidden"
               >
-                {/* Gold number accent */}
-                <span className="absolute top-6 right-6 font-serif text-5xl font-bold text-gold/10 group-hover:text-gold/20 transition-colors duration-300 select-none">
-                  {item.number}
-                </span>
+                <div className="group hover-lift rounded-2xl border border-gray-100 bg-white p-8 sm:p-10 shadow-sm relative overflow-hidden">
+                  {/* Gold number accent */}
+                  <span className="absolute top-6 right-6 font-serif text-5xl font-bold text-gold/10 group-hover:text-gold/20 transition-colors duration-300 select-none">
+                    {item.number}
+                  </span>
 
-                {/* Gold top accent bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold to-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                  {/* Gold top accent bar */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold to-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
-                <div className="relative">
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-gold/15 to-gold-light/10 text-gold">
-                    {item.icon}
+                  <div className="relative">
+                    <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-gold/15 to-gold-light/10 text-gold">
+                      {item.icon}
+                    </div>
+                    <h3 className="font-serif text-xl font-bold text-green-deep sm:text-2xl">
+                      {item.title}
+                    </h3>
+                    <p className="mt-4 leading-relaxed text-gray-600">
+                      {item.description}
+                    </p>
                   </div>
-                  <h3 className="font-serif text-xl font-bold text-green-deep sm:text-2xl">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 leading-relaxed text-gray-600">
-                    {item.description}
-                  </p>
                 </div>
               </ScrollReveal>
             ))}
