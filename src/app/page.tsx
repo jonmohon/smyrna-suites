@@ -30,7 +30,7 @@ export default function Home() {
           fill
           className="object-cover opacity-50"
           priority
-          speed={0.08}
+          speed={0.4}
           containerClassName="absolute inset-0"
         />
 
@@ -213,7 +213,7 @@ export default function Home() {
               alt="Premium private salon suite interior"
               fill
               className="object-cover"
-              speed={0.12}
+              speed={0.5}
               containerClassName="absolute inset-0"
             />
             {/* Subtle right-edge fade so image meets content cleanly */}
@@ -383,7 +383,7 @@ export default function Home() {
           alt="Japanese head spa treatment"
           fill
           className="object-cover animate-ken-burns"
-          speed={0.15}
+          speed={0.6}
           containerClassName="absolute inset-0"
         />
         {/* Dark gradient overlay */}
@@ -551,7 +551,7 @@ export default function Home() {
                 width={800}
                 height={500}
                 className="rounded-2xl object-cover w-full shadow-lg"
-                speed={0.1}
+                speed={0.45}
               />
             </div>
 
@@ -603,7 +603,7 @@ export default function Home() {
           alt="Stylist at work in a salon suite"
           fill
           className="object-cover"
-          speed={0.1}
+          speed={0.45}
           containerClassName="absolute inset-0"
         />
         {/* Dark overlay for readability */}

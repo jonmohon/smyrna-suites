@@ -56,7 +56,7 @@ export default function AboutPage() {
           fill
           className="object-cover opacity-40"
           priority
-          speed={0.08}
+          speed={0.4}
           containerClassName="absolute inset-0"
         />
 
@@ -208,7 +208,7 @@ export default function AboutPage() {
                   alt="Premium salon suite interior with styling stations"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
-                  speed={0.06}
+                  speed={0.3}
                   containerClassName="absolute inset-0"
                 />
               </div>
