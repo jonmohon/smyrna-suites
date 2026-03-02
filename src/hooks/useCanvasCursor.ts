@@ -112,7 +112,7 @@ const useCanvasCursor = () => {
 
       // Gold color with subtle warm shift
       var hue = oscillator.update();
-      ctx.strokeStyle = "hsla(" + Math.round(hue) + ",55%,55%,0.12)";
+      ctx.strokeStyle = "hsla(" + Math.round(hue) + ",55%,55%,0.18)";
       ctx.lineWidth = 1;
 
       for (var i = 0; i < CONFIG.trails; i++) {
@@ -134,11 +134,11 @@ const useCanvasCursor = () => {
     pos = {},
     lines = [],
     CONFIG = {
-      friction: 0.35,
-      trails: 6,
-      size: 15,
-      dampening: 0.15,
-      tension: 0.96,
+      friction: 0.5,
+      trails: 4,
+      size: 8,
+      dampening: 0.25,
+      tension: 0.98,
     };
 
   function Node() {
