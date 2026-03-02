@@ -77,6 +77,10 @@ const useCanvasCursor = () => {
     },
   };
 
+  // Track all bound handlers for cleanup
+  var activeHandler = null;
+  var activeTouchStart = null;
+
   function onMousemove(e) {
     function handler(e) {
       e.touches
@@ -95,6 +99,8 @@ const useCanvasCursor = () => {
     document.addEventListener("mousemove", handler);
     document.addEventListener("touchmove", handler);
     document.addEventListener("touchstart", touchStart);
+    activeHandler = handler;
+    activeTouchStart = touchStart;
     handler(e);
 
     lines = [];
@@ -148,6 +154,8 @@ const useCanvasCursor = () => {
     this.vx = 0;
   }
 
+  var focusHandler, blurHandler;
+
   const renderCanvas = function () {
     const canvas = document.getElementById("canvas");
     if (!canvas) return;
@@ -167,15 +175,19 @@ const useCanvasCursor = () => {
     document.addEventListener("touchstart", onMousemove);
     document.body.addEventListener("orientationchange", resizeCanvas);
     window.addEventListener("resize", resizeCanvas);
-    window.addEventListener("focus", () => {
+
+    focusHandler = () => {
       if (!ctx.running) {
         ctx.running = true;
         render();
       }
-    });
-    window.addEventListener("blur", () => {
+    };
+    blurHandler = () => {
       ctx.running = false;
-    });
+    };
+
+    window.addEventListener("focus", focusHandler);
+    window.addEventListener("blur", blurHandler);
     resizeCanvas();
   };
 
@@ -187,6 +199,19 @@ const useCanvasCursor = () => {
 
     return () => {
       if (ctx) ctx.running = false;
+      document.removeEventListener("mousemove", onMousemove);
+      document.removeEventListener("touchstart", onMousemove);
+      if (activeHandler) {
+        document.removeEventListener("mousemove", activeHandler);
+        document.removeEventListener("touchmove", activeHandler);
+      }
+      if (activeTouchStart) {
+        document.removeEventListener("touchstart", activeTouchStart);
+      }
+      document.body.removeEventListener("orientationchange", resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
+      if (focusHandler) window.removeEventListener("focus", focusHandler);
+      if (blurHandler) window.removeEventListener("blur", blurHandler);
     };
   }, []);
 };

@@ -10,6 +10,12 @@ import { HeartHandshake, Globe, Droplets, CalendarDays, Star, ExternalLink, Phon
 export const metadata: Metadata = {
   title: "About Us",
   description: `Learn about ${BUSINESS.name} — premium salon suite rentals for independent beauty professionals in Smyrna, GA.`,
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Us | Smyrna Salon Suites",
+    description: `Learn about ${BUSINESS.name} — premium salon suite rentals for independent beauty professionals in Smyrna, GA.`,
+    url: "/about",
+  },
 };
 
 const differentiators = [

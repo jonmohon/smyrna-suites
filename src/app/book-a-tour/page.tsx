@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: "Book a Tour",
   description:
     "Schedule a tour of Smyrna Salon Suites. See our fully furnished salon suites in person. We'll get back to you within 24 hours.",
+  alternates: { canonical: "/book-a-tour" },
+  openGraph: {
+    title: "Book a Tour | Smyrna Salon Suites",
+    description:
+      "Schedule a tour of Smyrna Salon Suites. See our fully furnished salon suites in person.",
+    url: "/book-a-tour",
+  },
 };
 
 export default function BookTourPage() {

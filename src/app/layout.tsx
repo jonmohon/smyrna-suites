@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Cardo } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CanvasCursor from "@/components/CanvasCursor";
+import LazyCanvasCursor from "@/components/LazyCanvasCursor";
 import ScrollEffects from "@/components/ScrollEffects";
+import { BUSINESS } from "@/lib/constants";
 import "./globals.css";
 
 const inter = Inter({
@@ -19,7 +20,12 @@ const cardo = Cardo({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#1a5c2a",
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BUSINESS.url),
   title: {
     default: "Smyrna Salon Suites | Premium Salon Suite Rentals in Smyrna, GA",
     template: "%s | Smyrna Salon Suites",
@@ -33,14 +39,75 @@ export const metadata: Metadata = {
     "barber suite rental",
     "beauty salon Smyrna GA",
     "salon suites near me",
+    "private salon suite Atlanta",
+    "booth rental Smyrna GA",
+    "beauty professional space Smyrna",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Smyrna Salon Suites | Premium Salon Suite Rentals",
     description:
       "Rent a fully furnished salon suite in Smyrna, GA. Private suites for stylists, barbers, and beauty professionals.",
     type: "website",
     locale: "en_US",
-    images: ["/images/logo.svg"],
+    url: "/",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Smyrna Salon Suites — Premium salon suite rentals in Smyrna, GA",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Smyrna Salon Suites | Premium Salon Suite Rentals",
+    description:
+      "Rent a fully furnished salon suite in Smyrna, GA. Private suites for stylists, barbers, and beauty professionals.",
+    images: ["/images/og-image.jpg"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: BUSINESS.name,
+  description:
+    "Premium private salon suites for rent in Smyrna, GA. Fully furnished, move-in ready suites for stylists, barbers, and beauty professionals.",
+  url: BUSINESS.url,
+  telephone: BUSINESS.phone,
+  email: BUSINESS.email,
+  image: `${BUSINESS.url}/images/og-image.jpg`,
+  priceRange: "$75–$350/week",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: BUSINESS.address.street,
+    addressLocality: BUSINESS.address.city,
+    addressRegion: BUSINESS.address.state,
+    postalCode: BUSINESS.address.zip,
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: BUSINESS.geo.lat,
+    longitude: BUSINESS.geo.lng,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    opens: "09:00",
+    closes: "19:00",
   },
 };
 
@@ -51,10 +118,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.variable} ${cardo.variable} antialiased`}>
         <div className="scroll-progress-bar" aria-hidden="true" />
         <ScrollEffects />
-        <CanvasCursor />
+        <LazyCanvasCursor />
         <Header />
         <main>{children}</main>
         <Footer />

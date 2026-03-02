@@ -84,13 +84,18 @@ export default function Home() {
             Premium Salon Suites in {BUSINESS.address.city}, {BUSINESS.address.state}
           </div>
 
-          {/* Main tagline */}
+          {/* Main heading — keyword-rich for SEO */}
           <h1 className="animate-fade-in-up font-serif text-5xl font-bold leading-[1.1] tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl">
-            <span className="gold-gradient-text">{BUSINESS.tagline}</span>
+            <span className="gold-gradient-text">Premium Salon Suites for Rent in Smyrna</span>
           </h1>
 
+          {/* Tagline */}
+          <p className="animate-fade-in-up delay-100 mx-auto mt-4 font-serif text-xl text-gold-light/80 sm:text-2xl lg:text-3xl">
+            {BUSINESS.tagline}
+          </p>
+
           {/* Subtitle */}
-          <p className="animate-fade-in-up delay-200 mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/70 sm:text-xl lg:text-2xl">
+          <p className="animate-fade-in-up delay-200 mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-white/70 sm:text-xl lg:text-2xl">
             Private, fully furnished salon suites for independent beauty professionals.
             Move in and start building your dream business today.
           </p>
@@ -382,7 +387,7 @@ export default function Home() {
           src="/images/head-spa.jpg"
           alt="Japanese head spa treatment"
           fill
-          className="object-cover animate-ken-burns"
+          className="object-cover"
           speed={0.6}
           containerClassName="absolute inset-0"
         />

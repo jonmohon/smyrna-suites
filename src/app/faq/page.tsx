@@ -3,17 +3,43 @@ import Image from "next/image";
 import SectionHeading from "@/components/SectionHeading";
 import FaqAccordion from "@/components/FaqAccordion";
 import Button from "@/components/Button";
+import { FAQ_ITEMS, BUSINESS } from "@/lib/constants";
 import { Phone, MessageCircle, HelpCircle, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "FAQ",
   description:
     "Frequently asked questions about Smyrna Salon Suites — pricing, amenities, access, location, and more.",
+  alternates: { canonical: "/faq" },
+  openGraph: {
+    title: "FAQ | Smyrna Salon Suites",
+    description:
+      "Frequently asked questions about Smyrna Salon Suites — pricing, amenities, access, location, and more.",
+    url: "/faq",
+  },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
 };
 
 export default function FaqPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       {/* Custom FAQ Hero */}
       <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-black px-4 text-white">
         {/* Background image */}
@@ -121,7 +147,7 @@ export default function FaqPage() {
               </div>
               <div>
                 <p className="font-semibold text-green-deep">Call Us</p>
-                <a href="tel:(470) 662-8690" className="text-sm text-gold hover:text-gold-light">(470) 662-8690</a>
+                <a href={`tel:${BUSINESS.phone}`} className="text-sm text-gold hover:text-gold-light">{BUSINESS.phone}</a>
               </div>
             </div>
             <div className="flex items-center gap-4 rounded-xl border border-gray-100 bg-white px-6 py-5 shadow-sm">
@@ -130,7 +156,7 @@ export default function FaqPage() {
               </div>
               <div>
                 <p className="font-semibold text-green-deep">Email Us</p>
-                <a href="mailto:Baldemjsalon@gmail.com" className="text-sm text-gold hover:text-gold-light">Baldemjsalon@gmail.com</a>
+                <a href={`mailto:${BUSINESS.email}`} className="text-sm text-gold hover:text-gold-light">{BUSINESS.email}</a>
               </div>
             </div>
           </div>

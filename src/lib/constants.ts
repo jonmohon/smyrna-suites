@@ -1,7 +1,9 @@
 export const BUSINESS = {
   name: "Smyrna Salon Suites",
   tagline: "Your Suite. Your Business. Your Way.",
+  url: "https://smyrnasalonsuites.com",
   phone: "(470) 662-8690",
+  phoneSecondary: "(404) 919-8893",
   email: "Baldemjsalon@gmail.com",
   address: {
     street: "3020 Highlands Parkway, Suite G",
@@ -11,6 +13,9 @@ export const BUSINESS = {
     full: "3020 Highlands Parkway, Suite G, Smyrna, GA 30082",
   },
   plaza: "Integrity Heights Plaza",
+  geo: { lat: 33.863, lng: -84.514 },
+  hours: "Mo-Su 09:00-19:00",
+  hoursDisplay: "Mon–Sun 9am–7pm",
   googleMapsUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.5!2d-84.514!3d33.863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDUxJzQ3LjAiTiA4NMKwMzAnNTAuNCJX!5e0!3m2!1sen!2sus!4v1700000000000",
   formspreeId: "xpwzgkvy",
@@ -149,7 +154,7 @@ export const FAQ_ITEMS = [
   {
     question: "How do I book a tour?",
     answer:
-      "Simply visit our Book a Tour page and fill out the short form. We'll get back to you within 24 hours to schedule a time that works for you. You can also call us directly at (404) 919-8893.",
+      "Simply visit our Book a Tour page and fill out the short form. We'll get back to you within 24 hours to schedule a time that works for you. You can also call us directly at (470) 662-8690 or (404) 919-8893.",
   },
 ] as const;
 

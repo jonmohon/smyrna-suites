@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://smyrnasalonsuites.com/sitemap.xml

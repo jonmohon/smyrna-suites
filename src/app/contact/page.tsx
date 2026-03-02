@@ -4,12 +4,20 @@ import SectionHeading from "@/components/SectionHeading";
 import ContactInfo from "@/components/ContactInfo";
 import GoogleMap from "@/components/GoogleMap";
 import Button from "@/components/Button";
+import { BUSINESS } from "@/lib/constants";
 import { MapPin, Clock, Car, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Smyrna Salon Suites. Visit us at 3020 Highlands Parkway, Suite G, Smyrna, GA 30082 or call (470) 662-8690.",
+    `Get in touch with Smyrna Salon Suites. Visit us at ${BUSINESS.address.full} or call ${BUSINESS.phone}.`,
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact | Smyrna Salon Suites",
+    description:
+      `Get in touch with Smyrna Salon Suites. Visit us at ${BUSINESS.address.full} or call ${BUSINESS.phone}.`,
+    url: "/contact",
+  },
 };
 
 export default function ContactPage() {
@@ -71,11 +79,11 @@ export default function ContactPage() {
             {/* Contact quick actions */}
             <div className="animate-fade-in-up delay-400 mt-10 flex flex-wrap gap-4">
               <a
-                href="tel:(470) 662-8690"
+                href={`tel:${BUSINESS.phone}`}
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-gold/40 hover:bg-white/15"
               >
                 <Phone className="h-4 w-4 text-gold" />
-                (470) 662-8690
+                {BUSINESS.phone}
               </a>
               <a
                 href="https://maps.google.com/?q=3020+Highlands+Parkway+Suite+G+Smyrna+GA+30082"
