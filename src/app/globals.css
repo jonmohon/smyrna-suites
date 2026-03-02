@@ -102,6 +102,16 @@ h1, h2, h3, h4 {
   to   { transform: scaleX(1); }
 }
 
+@keyframes drift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 64px 64px; }
+}
+
+@keyframes drift-reverse {
+  0%   { background-position: 0 0; }
+  100% { background-position: -48px 48px; }
+}
+
 /* ---- Animation Utilities ---- */
 .animate-fade-in-up {
   animation: fadeInUp 0.7s ease-out both;
@@ -132,9 +142,9 @@ h1, h2, h3, h4 {
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.15) 50%, transparent 75%);
+  background: linear-gradient(90deg, transparent 30%, rgba(255,255,255,0.04) 50%, transparent 70%);
   background-size: 200% 100%;
-  animation: shimmer 3s ease-in-out infinite;
+  animation: shimmer 6s ease-in-out infinite;
 }
 
 .animate-gradient {

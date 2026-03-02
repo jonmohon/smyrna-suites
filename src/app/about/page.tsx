@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import Button from "@/components/Button";
 import { BUSINESS, JADE_SALON } from "@/lib/constants";
@@ -45,10 +44,84 @@ const differentiators = [
 export default function AboutPage() {
   return (
     <>
-      <Hero
-        title="About Us"
-        subtitle={`Discover the vision behind ${BUSINESS.name} and what makes us the right home for your beauty business.`}
-      />
+      {/* Custom About Hero — full image with layered content */}
+      <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-black px-4 text-white">
+        {/* Background image */}
+        <Image
+          src="/images/salon-interior.jpg"
+          alt="Inside a premium salon suite"
+          fill
+          className="object-cover opacity-40"
+          priority
+        />
+
+        {/* Gradient overlays for depth */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40" />
+
+        {/* Animated shimmer */}
+        <div className="animate-shimmer pointer-events-none absolute inset-0" />
+
+        {/* Decorative elements */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          {/* Gold corner accents */}
+          <div className="absolute left-8 top-8 h-24 w-24 border-l-2 border-t-2 border-gold/25 sm:left-16 sm:top-16 sm:h-32 sm:w-32" />
+          <div className="absolute bottom-8 right-8 h-24 w-24 border-b-2 border-r-2 border-gold/25 sm:bottom-16 sm:right-16 sm:h-32 sm:w-32" />
+
+          {/* Floating rings */}
+          <svg className="animate-float absolute -right-16 top-1/4 h-[300px] w-[300px] opacity-[0.06]" viewBox="0 0 300 300">
+            <circle cx="150" cy="150" r="140" fill="none" stroke="#c5a355" strokeWidth="1.5" />
+            <circle cx="150" cy="150" r="100" fill="none" stroke="#c5a355" strokeWidth="1" strokeDasharray="8 12" />
+          </svg>
+
+          {/* Dotted pattern left side */}
+          <div
+            className="absolute left-0 top-0 h-full w-1/3 opacity-[0.04]"
+            style={{
+              backgroundImage: "radial-gradient(circle, #c5a355 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 mx-auto max-w-6xl py-24 sm:py-32">
+          <div className="max-w-2xl">
+            {/* Badge */}
+            <div className="animate-fade-in mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm tracking-wide text-white/80 backdrop-blur-sm">
+              <Star className="h-4 w-4 text-gold" fill="currentColor" />
+              Our Story
+            </div>
+
+            {/* Title */}
+            <h1 className="animate-fade-in-up font-serif text-5xl font-bold leading-[1.1] tracking-tight sm:text-6xl lg:text-7xl">
+              <span className="gold-gradient-text">About Us</span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="animate-fade-in-up delay-200 mt-6 max-w-xl text-lg leading-relaxed text-white/70 sm:text-xl">
+              Discover the vision behind {BUSINESS.name} and what makes us the right home for your beauty business.
+            </p>
+
+            {/* Accent line */}
+            <div className="animate-fade-in-up delay-300 mt-8 h-1 w-20 rounded-full bg-gradient-to-r from-gold to-gold-light" />
+
+            {/* Quick stats row */}
+            <div className="animate-fade-in-up delay-400 mt-10 flex flex-wrap gap-8">
+              {[
+                { label: "Fully Furnished", icon: <Gem className="h-4 w-4" /> },
+                { label: "24/7 Access", icon: <CalendarDays className="h-4 w-4" /> },
+                { label: "Move-In Ready", icon: <Award className="h-4 w-4" /> },
+              ].map((item) => (
+                <div key={item.label} className="flex items-center gap-2 text-sm text-white/60">
+                  <span className="text-gold">{item.icon}</span>
+                  {item.label}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Our Story */}
       <section className="relative px-4 py-20 sm:py-28 overflow-hidden">

@@ -185,9 +185,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HOW IT WORKS — Simple 3-step process */}
-      <section className="bg-green-deep px-4 py-24 sm:py-32">
-        <div className="mx-auto max-w-5xl text-center">
+      {/* HOW IT WORKS — Simple 3-step process with textured background */}
+      <section
+        className="relative overflow-hidden px-4 py-24 sm:py-32"
+        style={{
+          backgroundColor: "#1a5c2a",
+          backgroundImage: `
+            radial-gradient(ellipse at 20% 50%, rgba(197,163,85,0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 50%, rgba(197,163,85,0.06) 0%, transparent 50%),
+            linear-gradient(180deg, rgba(0,0,0,0.15) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.15) 100%)
+          `,
+        }}
+      >
+        {/* Dotted grid pattern — slowly drifting */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle, rgba(197,163,85,0.3) 1.5px, transparent 1.5px)`,
+            backgroundSize: "28px 28px",
+            animation: "drift 8s linear infinite",
+          }}
+        />
+
+        {/* Crosshatch lines — drifting opposite direction */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage: `
+              repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(197,163,85,0.1) 20px,
+                rgba(197,163,85,0.1) 21.5px
+              ),
+              repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 20px,
+                rgba(197,163,85,0.06) 20px,
+                rgba(197,163,85,0.06) 21.5px
+              )
+            `,
+            animation: "drift-reverse 14s linear infinite",
+          }}
+        />
+
+        {/* Large decorative corner brackets */}
+        <div className="pointer-events-none absolute left-6 top-6 h-24 w-24 border-l-2 border-t-2 border-gold/20 sm:left-12 sm:top-12" />
+        <div className="pointer-events-none absolute bottom-6 right-6 h-24 w-24 border-b-2 border-r-2 border-gold/20 sm:bottom-12 sm:right-12" />
+
+        {/* Floating geometric shapes */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <svg className="animate-float absolute -left-12 top-1/4 h-[250px] w-[250px] opacity-[0.08]" viewBox="0 0 250 250">
+            <circle cx="125" cy="125" r="100" fill="none" stroke="#c5a355" strokeWidth="1.5" strokeDasharray="8 12" />
+            <circle cx="125" cy="125" r="60" fill="none" stroke="#c5a355" strokeWidth="1" strokeDasharray="4 8" />
+          </svg>
+          <svg className="animate-float absolute -right-8 bottom-1/4 h-[200px] w-[200px] opacity-[0.08]" style={{ animationDelay: "3s" }} viewBox="0 0 200 200">
+            <rect x="40" y="40" width="120" height="120" fill="none" stroke="#c5a355" strokeWidth="1.5" transform="rotate(45 100 100)" />
+          </svg>
+          <svg className="absolute left-1/3 bottom-8 h-[120px] w-[120px] opacity-[0.06]" viewBox="0 0 120 120">
+            <polygon points="60,5 115,60 60,115 5,60" fill="none" stroke="#c5a355" strokeWidth="1" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-5xl text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">Simple Process</p>
           <h2 className="font-serif text-3xl font-bold text-white sm:text-4xl">How It Works</h2>
           <span className="accent-line-center mt-4" />
@@ -199,7 +261,7 @@ export default function Home() {
               { step: "03", icon: <Sparkles className="h-8 w-8" />, title: "Move In & Grow", desc: "Bring your tools and start seeing clients. We handle everything else so you can focus on your craft." },
             ].map((item, i) => (
               <div key={item.step} className={`animate-fade-in-up delay-${(i + 1) * 100} relative`}>
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border-2 border-gold/30 bg-white/10 text-gold backdrop-blur-sm">
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border-2 border-gold/30 bg-white/10 text-gold shadow-lg shadow-black/10 backdrop-blur-sm transition-transform duration-300 hover:scale-110">
                   {item.icon}
                 </div>
                 <span className="mb-2 block font-mono text-sm font-bold text-gold/60">{item.step}</span>

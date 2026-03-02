@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Cardo } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CanvasCursor from "@/components/CanvasCursor";
 import "./globals.css";
 
 const inter = Inter({
@@ -50,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${cardo.variable} antialiased`}>
+        <CanvasCursor />
         <Header />
         <main>{children}</main>
         <Footer />
