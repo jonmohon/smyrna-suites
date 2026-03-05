@@ -57,7 +57,7 @@ export default function AboutPage() {
       <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-black px-4 text-white">
         {/* Background image with parallax */}
         <ParallaxImage
-          src="/images/salon-interior.jpg"
+          src="/images/suite-interior.webp"
           alt="Inside a premium salon suite"
           fill
           className="object-cover opacity-40"
@@ -166,8 +166,8 @@ export default function AboutPage() {
             {/* Right column — image */}
             <ScrollReveal variant="slide-right" delay={200}>
               <Image
-                src="/images/stylist-working.jpg"
-                alt="Professional stylist at work in a salon suite"
+                src="/images/suite-mirror.webp"
+                alt="Elegant salon suite interior with large mirror"
                 width={600}
                 height={400}
                 className="rounded-2xl shadow-xl object-cover"
@@ -210,7 +210,7 @@ export default function AboutPage() {
             <ScrollReveal variant="fade-up" className="col-span-12 sm:col-span-7">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <ParallaxImage
-                  src="/images/salon-interior.jpg"
+                  src="/images/suite-interior.webp"
                   alt="Premium salon suite interior with styling stations"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
@@ -232,8 +232,32 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
 
+            {/* Suite with chandelier — portrait, 5 cols, offset up */}
+            <ScrollReveal variant="fade-up" delay={300} className="col-span-12 sm:col-span-5 sm:-mt-8">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
+                <Image
+                  src="/images/suite-chandelier.webp"
+                  alt="Luxury salon suite with chandelier and tall windows"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+            </ScrollReveal>
+
+            {/* Suite mirror view — 7 cols */}
+            <ScrollReveal variant="fade-up" delay={400} className="col-span-12 sm:col-span-7 sm:mt-8">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                <Image
+                  src="/images/suite-mirror.webp"
+                  alt="Elegant salon suite interior with large mirror and styling area"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+            </ScrollReveal>
+
             {/* Wide — head spa, centered below, overlapping upward */}
-            <ScrollReveal variant="fade-up" delay={300} className="col-span-12 sm:col-span-8 sm:col-start-3 sm:-mt-16">
+            <ScrollReveal variant="fade-up" delay={500} className="col-span-12 sm:col-span-8 sm:col-start-3 sm:-mt-16">
               <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-xl">
                 <Image
                   src="/images/head-spa.jpg"
@@ -297,8 +321,8 @@ export default function AboutPage() {
             {/* Right column — building image */}
             <ScrollReveal variant="slide-right" delay={300}>
               <Image
-                src="/images/plaza-exterior.png"
-                alt="Highlands Plaza exterior, home of Smyrna Salon Suites"
+                src="/images/courtyard-exterior.webp"
+                alt="Smyrna Salon Suites courtyard exterior"
                 width={600}
                 height={400}
                 className="rounded-2xl shadow-xl object-cover"

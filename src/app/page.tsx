@@ -184,7 +184,7 @@ export default function Home() {
             {/* Right column — image */}
             <ScrollReveal variant="fade-up" delay={200}>
               <Image
-                src="/images/salon-interior.jpg"
+                src="/images/suite-interior.webp"
                 alt="Premium salon suite interior with styling chairs"
                 width={600}
                 height={400}
@@ -203,8 +203,8 @@ export default function Home() {
         {/* Mobile image — visible, stacked on top */}
         <div className="relative w-full aspect-[4/3] lg:hidden">
           <Image
-            src="/images/salon-suite.jpg"
-            alt="Premium private salon suite interior"
+            src="/images/suite-chandelier.webp"
+            alt="Premium private salon suite interior with chandelier"
             fill
             className="object-cover"
           />
@@ -214,8 +214,8 @@ export default function Home() {
           {/* Left — full-bleed image with parallax (desktop only) */}
           <div className="hidden lg:block lg:w-1/2 relative">
             <ParallaxImage
-              src="/images/salon-suite.jpg"
-              alt="Premium private salon suite interior"
+              src="/images/suite-chandelier.webp"
+              alt="Premium private salon suite interior with chandelier"
               fill
               className="object-cover"
               speed={0.5}
@@ -387,8 +387,8 @@ export default function Home() {
           src="/images/head-spa.jpg"
           alt="Japanese head spa treatment"
           fill
-          className="object-cover"
-          speed={0.6}
+          className="object-cover scale-[1.3]"
+          speed={0.4}
           containerClassName="absolute inset-0"
         />
         {/* Dark gradient overlay */}
@@ -551,8 +551,8 @@ export default function Home() {
             {/* Image — takes ~65% width on desktop, with parallax */}
             <div className="lg:w-[65%]">
               <ParallaxImage
-                src="/images/plaza-exterior.png"
-                alt="Smyrna Salon Suites plaza exterior at Integrity Heights Plaza"
+                src="/images/courtyard-exterior.webp"
+                alt="Smyrna Salon Suites courtyard exterior at Integrity Heights Plaza"
                 width={800}
                 height={500}
                 className="rounded-2xl object-cover w-full shadow-lg"

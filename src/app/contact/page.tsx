@@ -27,8 +27,8 @@ export default function ContactPage() {
       <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-black px-4 text-white">
         {/* Background image */}
         <Image
-          src="/images/plaza-exterior.png"
-          alt="Smyrna Salon Suites at Highlands Plaza"
+          src="/images/jade-courtyard.jpg"
+          alt="Smyrna Salon Suites courtyard"
           fill
           className="object-cover opacity-35"
           priority
@@ -115,8 +115,8 @@ export default function ContactPage() {
           <div className="animate-fade-in-up mt-10 mb-14 overflow-hidden rounded-2xl shadow-lg">
             <div className="relative h-[240px] sm:h-[320px]">
               <Image
-                src="/images/plaza-exterior.png"
-                alt="Smyrna Salon Suites at Highlands Plaza exterior view"
+                src="/images/courtyard-exterior.webp"
+                alt="Smyrna Salon Suites courtyard exterior view"
                 fill
                 className="object-cover"
               />
