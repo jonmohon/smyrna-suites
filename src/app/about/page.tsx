@@ -38,14 +38,14 @@ const differentiators = [
     title: "Head Spa Access",
     icon: <Droplets className="h-7 w-7" />,
     description:
-      "Your clients can enjoy authentic Japanese head spa treatments from our anchor salon — an exclusive perk of our location.",
+      "Rent our private head spa room by the hour to offer authentic Japanese head spa treatments to your own clients. Or refer them to Jade Head Spa and earn commission discounts toward your rent.",
   },
   {
     number: "04",
     title: "Flexible Scheduling",
     icon: <CalendarDays className="h-7 w-7" />,
     description:
-      "Choose from day pass, part-time, or full-time plans. Full-time renters enjoy 24/7 access to their suite.",
+      "Choose from day pass, part-time, or full-time plans. Pick the option that works best for your schedule.",
   },
 ];
 
@@ -121,7 +121,7 @@ export default function AboutPage() {
             <div className="animate-fade-in-up delay-400 mt-10 flex flex-wrap gap-8">
               {[
                 { label: "Fully Furnished", icon: <Gem className="h-4 w-4" /> },
-                { label: "24/7 Access", icon: <CalendarDays className="h-4 w-4" /> },
+                { label: "Flexible Plans", icon: <CalendarDays className="h-4 w-4" /> },
                 { label: "Move-In Ready", icon: <Award className="h-4 w-4" /> },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-2 text-sm text-white/60">
@@ -156,8 +156,10 @@ export default function AboutPage() {
                 <p>
                   We understand the challenges of running your own beauty
                   business. That&apos;s why we handle the overhead — WiFi, utilities,
-                  parking, and furnishings — so you can focus on what you do best:
-                  serving your clients and building your brand.
+                  parking, furnishings, complimentary salon laundry services, and
+                  access to a private head spa room — so you can focus on what you
+                  do best: serving your clients and building your brand. We are
+                  here to help you every step of the way.
                 </p>
               </div>
               <span className="accent-line-center mt-10 lg:!mx-0 lg:after:left-0 lg:after:translate-x-0" />
@@ -292,10 +294,11 @@ export default function AboutPage() {
             <ScrollReveal variant="fade-up" delay={200}>
               <div className="rounded-2xl bg-white p-8 sm:p-10 shadow-sm border-l-4 border-gold">
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  {JADE_SALON.description} As our anchor tenant, Jade Salon brings
-                  established clientele and foot traffic that benefits every suite
-                  renter in the building. Their renowned head spa treatments are a
-                  unique draw that sets our location apart.
+                  {JADE_SALON.name} specializes in premium hair services and authentic
+                  Japanese head spa treatments. Suite renters have their own separate
+                  private entrance and operate independently from Jade Salon. Their
+                  renowned head spa treatments are a unique draw that sets our
+                  location apart.
                 </p>
                 <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
                   <a

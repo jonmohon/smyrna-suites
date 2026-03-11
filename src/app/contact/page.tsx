@@ -27,7 +27,7 @@ export default function ContactPage() {
       <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-black px-4 text-white">
         {/* Background image */}
         <Image
-          src="/images/jade-courtyard.jpg"
+          src="/images/hero-bg.jpg"
           alt="Smyrna Salon Suites courtyard"
           fill
           className="object-cover opacity-35"
@@ -125,8 +125,8 @@ export default function ContactPage() {
 
           <div className="mb-14 grid gap-4 sm:grid-cols-3">
             {[
-              { icon: <MapPin className="h-5 w-5" />, text: "Integrity Heights Plaza, off I-285" },
-              { icon: <Clock className="h-5 w-5" />, text: "Full-time renters: 24/7 access" },
+              { icon: <MapPin className="h-5 w-5" />, text: "The Integrity Heights Plaza, off I-285" },
+              { icon: <Clock className="h-5 w-5" />, text: "Flexible scheduling available" },
               { icon: <Car className="h-5 w-5" />, text: "Free parking directly in front" },
             ].map((item) => (
               <div key={item.text} className="flex items-center gap-3 rounded-xl border border-gray-100 bg-white px-5 py-4 shadow-sm">

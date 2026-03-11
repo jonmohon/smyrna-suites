@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | Smyrna Salon Suites",
   },
   description:
-    "Rent a fully furnished salon suite in Smyrna, GA. Private suites for stylists, barbers, and beauty professionals. Flexible pricing starting at $75/day. Home of Jade Salon of Atlanta & Head Spa.",
+    "Rent a fully furnished salon suite in Smyrna, GA. Private suites for stylists, barbers, and beauty professionals. Flexible pricing plans available. Home of Jade Salon of Atlanta & Head Spa.",
   keywords: [
     "salon suites for rent Smyrna",
     "hair salon Smyrna",
@@ -81,7 +81,7 @@ const jsonLd = {
   telephone: BUSINESS.phone,
   email: BUSINESS.email,
   image: `${BUSINESS.url}/images/og-image.jpg`,
-  priceRange: "$75–$350/week",
+  priceRange: "$$",
   address: {
     "@type": "PostalAddress",
     streetAddress: BUSINESS.address.street,
@@ -94,20 +94,6 @@ const jsonLd = {
     "@type": "GeoCoordinates",
     latitude: BUSINESS.geo.lat,
     longitude: BUSINESS.geo.lng,
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ],
-    opens: "09:00",
-    closes: "19:00",
   },
 };
 

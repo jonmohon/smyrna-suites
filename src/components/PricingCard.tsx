@@ -5,6 +5,7 @@ type PricingCardProps = {
   name: string;
   price: string;
   period: string;
+  description?: string;
   features: readonly string[];
   popular?: boolean;
 };
@@ -13,6 +14,7 @@ export default function PricingCard({
   name,
   price,
   period,
+  description,
   features,
   popular = false,
 }: PricingCardProps) {
@@ -43,26 +45,36 @@ export default function PricingCard({
       {/* Price */}
       <div className="mt-5">
         <span
-          className={`text-5xl font-bold tracking-tight ${
+          className={`text-3xl font-bold tracking-tight ${
             popular ? "text-gold" : "text-green-deep"
           }`}
         >
           {price}
         </span>
-        <span className="ml-1 text-base text-gray-500">{period}</span>
+        {period && <span className="ml-1 text-base text-gray-500">{period}</span>}
       </div>
 
+      {/* Description */}
+      {description && (
+        <p className="mt-6 text-sm leading-relaxed text-gray-600">{description}</p>
+      )}
+
       {/* Features */}
-      <ul className="mt-8 flex-1 space-y-4 text-left">
-        {features.map((feature) => (
-          <li key={feature} className="flex items-start gap-3 text-sm text-gray-600">
-            <Check
-              className={`mt-0.5 h-5 w-5 shrink-0 ${popular ? "text-gold" : "text-green-deep"}`}
-            />
-            <span className="leading-snug">{feature}</span>
-          </li>
-        ))}
-      </ul>
+      {features.length > 0 && (
+        <ul className="mt-8 flex-1 space-y-4 text-left">
+          {features.map((feature) => (
+            <li key={feature} className="flex items-start gap-3 text-sm text-gray-600">
+              <Check
+                className={`mt-0.5 h-5 w-5 shrink-0 ${popular ? "text-gold" : "text-green-deep"}`}
+              />
+              <span className="leading-snug">{feature}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {/* Spacer when no features */}
+      {features.length === 0 && <div className="mt-6 flex-1" />}
 
       {/* CTA Button */}
       <div className="mt-8">

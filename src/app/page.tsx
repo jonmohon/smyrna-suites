@@ -25,7 +25,7 @@ export default function Home() {
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-black via-[#111111] to-[#0a0a0a] px-4 text-center text-white">
         {/* Real photograph background with parallax */}
         <ParallaxImage
-          src="/images/hero-bg.jpg"
+          src="/images/jade-courtyard.jpg"
           alt="Salon interior"
           fill
           className="object-cover opacity-50"
@@ -86,7 +86,7 @@ export default function Home() {
 
           {/* Main heading — keyword-rich for SEO */}
           <h1 className="animate-fade-in-up font-serif text-5xl font-bold leading-[1.1] tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl">
-            <span className="gold-gradient-text">Premium Salon Suites for Rent in Smyrna</span>
+            <span className="gold-gradient-text">Premium Salon Suites for Rent in Smyrna, Ga.</span>
           </h1>
 
           {/* Tagline */}
@@ -97,7 +97,7 @@ export default function Home() {
           {/* Subtitle */}
           <p className="animate-fade-in-up delay-200 mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-white/70 sm:text-xl lg:text-2xl">
             Private, fully furnished salon suites for independent beauty professionals.
-            Move in and start building your dream business today.
+            Move in and start building your dream business with access to head spa room today.
           </p>
 
           {/* Accent line */}
@@ -411,8 +411,8 @@ export default function Home() {
       <section id="pricing" className="scroll-mt-20 px-4 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
-            title="Simple, Transparent Pricing"
-            subtitle="No hidden fees. WiFi, utilities, and parking included in every plan."
+            title="Flexible Pricing Plans"
+            subtitle="WiFi, utilities, and parking included in every plan. Call for details."
           />
           <div className="mt-4 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {PRICING.map((tier, i) => (
@@ -426,13 +426,13 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Deposit note */}
+          {/* Contact note */}
           <ScrollReveal variant="fade-up" delay={400} className="mt-12 text-center">
             <div className="mx-auto inline-flex max-w-lg items-start gap-3 rounded-xl border border-gold/20 bg-gold-muted px-6 py-4">
               <Info className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
               <p className="text-sm leading-relaxed text-gray-600">
-                <span className="font-semibold text-green-deep">$500 security deposit required.</span>{" "}
-                Full-time renters receive <span className="font-semibold text-gold">1 free week</span> after 6 months of continuous rental.
+                <span className="font-semibold text-green-deep">Call us at {BUSINESS.phone}</span>{" "}
+                to discuss pricing, availability, and find the perfect plan for your business.
               </p>
             </div>
           </ScrollReveal>
@@ -452,7 +452,7 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 mx-auto max-w-5xl">
-          <div className="grid grid-cols-2 gap-8 sm:gap-10 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-10">
             {STATS.map((stat, i) => (
               <ScrollReveal
                 key={stat.label}
@@ -485,10 +485,10 @@ export default function Home() {
               { icon: <Zap className="h-6 w-6" />, title: "Utilities Included", desc: "Electric, water, and AC — all covered in your rent" },
               { icon: <ParkingCircle className="h-6 w-6" />, title: "Free Parking", desc: "Plenty of spaces directly in front of the building" },
               { icon: <Shield className="h-6 w-6" />, title: "Security System", desc: "24/7 monitored security for your peace of mind" },
-              { icon: <Clock className="h-6 w-6" />, title: "Flexible Hours", desc: "Full-time renters get 24/7 access to their suite" },
+              { icon: <Clock className="h-6 w-6" />, title: "Flexible Hours", desc: "Set your own schedule and work when it suits you" },
               { icon: <Building2 className="h-6 w-6" />, title: "Private Waiting Area", desc: "A comfortable space for your clients to relax" },
               { icon: <Calendar className="h-6 w-6" />, title: "Towel Service", desc: "Fresh, clean towels supplied and ready for use" },
-              { icon: <Sparkles className="h-6 w-6" />, title: "Head Spa Access", desc: "Rent our private head spa space by the hour" },
+              { icon: <Sparkles className="h-6 w-6" />, title: "Head Spa Access", desc: "Rent our private head spa room by the hour for your clients, or refer them to Jade Head Spa and earn commission discounts toward your rent" },
             ].map((item, i) => (
               <ScrollReveal
                 key={item.title}
@@ -567,9 +567,9 @@ export default function Home() {
                 <div className="h-0.5 w-12 bg-gradient-to-r from-gold to-gold-light mb-6" />
 
                 <p className="text-base leading-relaxed text-gray-600">
-                  {JADE_SALON.description} As a suite renter, you benefit from the
-                  established foot traffic and reputation that {JADE_SALON.name} brings
-                  to our location.
+                  {JADE_SALON.name} specializes in premium hair services and authentic Japanese head spa treatments.
+                  Suite renters have their own separate private entrance and create their own independent space,
+                  not affiliated with Jade Salon.
                 </p>
 
                 <div className="my-6 h-px w-full bg-gradient-to-r from-gold/20 via-gold/10 to-transparent" />
