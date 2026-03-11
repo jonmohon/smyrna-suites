@@ -25,7 +25,7 @@ export default function Home() {
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-black via-[#111111] to-[#0a0a0a] px-4 text-center text-white">
         {/* Real photograph background with parallax */}
         <ParallaxImage
-          src="/images/jade-courtyard.jpg"
+          src="/images/jade-courtyard.webp"
           alt="Salon interior"
           fill
           className="object-cover opacity-50"
@@ -384,7 +384,7 @@ export default function Home() {
       {/* ================================================================ */}
       <section className="relative w-full h-[50vh] min-h-[320px] overflow-hidden vignette">
         <ParallaxImage
-          src="/images/head-spa.jpg"
+          src="/images/head-spa.webp"
           alt="Japanese head spa treatment"
           fill
           className="object-cover scale-[1.3]"
@@ -604,7 +604,7 @@ export default function Home() {
       <section className="relative overflow-hidden px-4 py-28 text-center sm:py-36">
         {/* Background image with parallax */}
         <ParallaxImage
-          src="/images/stylist-working.jpg"
+          src="/images/stylist-working.webp"
           alt="Stylist at work in a salon suite"
           fill
           className="object-cover"

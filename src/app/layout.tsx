@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/images/og-image.webp",
         width: 1200,
         height: 630,
         alt: "Smyrna Salon Suites — Premium salon suite rentals in Smyrna, GA",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: "Smyrna Salon Suites | Premium Salon Suite Rentals",
     description:
       "Rent a fully furnished salon suite in Smyrna, GA. Private suites for stylists, barbers, and beauty professionals.",
-    images: ["/images/og-image.jpg"],
+    images: ["/images/og-image.webp"],
   },
 };
 
@@ -80,7 +80,7 @@ const jsonLd = {
   url: BUSINESS.url,
   telephone: BUSINESS.phone,
   email: BUSINESS.email,
-  image: `${BUSINESS.url}/images/og-image.jpg`,
+  image: `${BUSINESS.url}/images/og-image.webp`,
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",

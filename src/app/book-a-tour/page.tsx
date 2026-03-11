@@ -96,7 +96,7 @@ export default function BookTourPage() {
             <div className="hidden lg:flex flex-col gap-6">
               <div className="animate-fade-in-up delay-200 overflow-hidden rounded-2xl shadow-lg">
                 <Image
-                  src="/images/salon-suite.jpg"
+                  src="/images/salon-suite.webp"
                   alt="Modern beauty suite ready for move-in"
                   width={600}
                   height={400}
@@ -105,7 +105,7 @@ export default function BookTourPage() {
               </div>
               <div className="animate-fade-in-up delay-400 overflow-hidden rounded-2xl shadow-lg">
                 <Image
-                  src="/images/barber-chair.jpg"
+                  src="/images/barber-chair.webp"
                   alt="Professional barber chair in a private suite"
                   width={600}
                   height={400}

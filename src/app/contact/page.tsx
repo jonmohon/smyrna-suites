@@ -27,7 +27,7 @@ export default function ContactPage() {
       <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-black px-4 text-white">
         {/* Background image */}
         <Image
-          src="/images/hero-bg.jpg"
+          src="/images/hero-bg.webp"
           alt="Smyrna Salon Suites courtyard"
           fill
           className="object-cover opacity-35"

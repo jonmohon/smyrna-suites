@@ -44,7 +44,7 @@ export default function FaqPage() {
       <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-black px-4 text-white">
         {/* Background image */}
         <Image
-          src="/images/stylist-working.jpg"
+          src="/images/stylist-working.webp"
           alt="Professional stylist at work"
           fill
           className="object-cover opacity-30"

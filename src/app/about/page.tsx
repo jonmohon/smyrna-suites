@@ -226,7 +226,7 @@ export default function AboutPage() {
             <ScrollReveal variant="fade-up" delay={200} className="col-span-12 sm:col-span-5 sm:mt-16">
               <div className="relative aspect-[4/3] sm:aspect-[3/4] overflow-hidden rounded-2xl">
                 <Image
-                  src="/images/barber-chair.jpg"
+                  src="/images/barber-chair.webp"
                   alt="Professional barber chair in a private suite"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
@@ -262,7 +262,7 @@ export default function AboutPage() {
             <ScrollReveal variant="fade-up" delay={500} className="col-span-12 sm:col-span-8 sm:col-start-3 sm:-mt-16">
               <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-xl">
                 <Image
-                  src="/images/head-spa.jpg"
+                  src="/images/head-spa.webp"
                   alt="Japanese head spa treatment room"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
