@@ -28,6 +28,7 @@ export default function Home() {
           src="/images/jade-courtyard.webp"
           alt="Salon interior"
           fill
+          sizes="100vw"
           className="object-cover opacity-50"
           priority
           speed={0.4}
@@ -206,6 +207,7 @@ export default function Home() {
             src="/images/suite-chandelier.webp"
             alt="Premium private salon suite interior with chandelier"
             fill
+            sizes="100vw"
             className="object-cover"
           />
         </div>
@@ -217,6 +219,7 @@ export default function Home() {
               src="/images/suite-chandelier.webp"
               alt="Premium private salon suite interior with chandelier"
               fill
+              sizes="50vw"
               className="object-cover"
               speed={0.5}
               containerClassName="absolute inset-0"
@@ -387,6 +390,7 @@ export default function Home() {
           src="/images/head-spa.webp"
           alt="Japanese head spa treatment"
           fill
+          sizes="100vw"
           className="object-cover scale-[1.3]"
           speed={0.4}
           containerClassName="absolute inset-0"
@@ -607,6 +611,7 @@ export default function Home() {
           src="/images/stylist-working.webp"
           alt="Stylist at work in a salon suite"
           fill
+          sizes="100vw"
           className="object-cover"
           speed={0.45}
           containerClassName="absolute inset-0"

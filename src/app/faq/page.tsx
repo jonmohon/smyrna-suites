@@ -47,13 +47,14 @@ export default function FaqPage() {
           src="/images/stylist-working.webp"
           alt="Professional stylist at work"
           fill
-          className="object-cover opacity-30"
+          sizes="100vw"
+          className="object-cover opacity-50"
           priority
         />
 
         {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
 
         {/* Decorative elements */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">

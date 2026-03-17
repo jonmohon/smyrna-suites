@@ -43,7 +43,7 @@ export default function Header() {
         >
           <div className="relative overflow-hidden rounded-full transition-transform duration-300 group-hover:scale-110">
             <Image
-              src="/images/logo.svg"
+              src="/images/logo.webp"
               alt={BUSINESS.name}
               width={44}
               height={44}

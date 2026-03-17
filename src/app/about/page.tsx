@@ -60,15 +60,16 @@ export default function AboutPage() {
           src="/images/suite-interior.webp"
           alt="Inside a premium salon suite"
           fill
-          className="object-cover opacity-40"
+          sizes="100vw"
+          className="object-cover opacity-55"
           priority
           speed={0.4}
           containerClassName="absolute inset-0"
         />
 
         {/* Gradient overlays for depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/25" />
 
         {/* Animated shimmer */}
         <div className="animate-shimmer pointer-events-none absolute inset-0" />
@@ -215,6 +216,7 @@ export default function AboutPage() {
                   src="/images/suite-interior.webp"
                   alt="Premium salon suite interior with styling stations"
                   fill
+                  sizes="(max-width: 640px) 100vw, 58vw"
                   className="object-cover hover:scale-105 transition-transform duration-700"
                   speed={0.3}
                   containerClassName="absolute inset-0"
@@ -229,6 +231,7 @@ export default function AboutPage() {
                   src="/images/barber-chair.webp"
                   alt="Professional barber chair in a private suite"
                   fill
+                  sizes="(max-width: 640px) 100vw, 42vw"
                   className="object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -241,6 +244,7 @@ export default function AboutPage() {
                   src="/images/suite-chandelier.webp"
                   alt="Luxury salon suite with chandelier and tall windows"
                   fill
+                  sizes="(max-width: 640px) 100vw, 42vw"
                   className="object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -253,6 +257,7 @@ export default function AboutPage() {
                   src="/images/suite-mirror.webp"
                   alt="Elegant salon suite interior with large mirror and styling area"
                   fill
+                  sizes="(max-width: 640px) 100vw, 58vw"
                   className="object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -265,6 +270,7 @@ export default function AboutPage() {
                   src="/images/head-spa.webp"
                   alt="Japanese head spa treatment room"
                   fill
+                  sizes="(max-width: 640px) 100vw, 67vw"
                   className="object-cover hover:scale-105 transition-transform duration-700"
                 />
                 {/* Subtle caption overlay */}
