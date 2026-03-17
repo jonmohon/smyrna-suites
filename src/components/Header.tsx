@@ -35,7 +35,7 @@ export default function Header() {
           : "bg-white/95 backdrop-blur-sm border-b border-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link
           href="/"
@@ -45,13 +45,13 @@ export default function Header() {
             <Image
               src="/images/logo.webp"
               alt={BUSINESS.name}
-              width={44}
-              height={44}
+              width={64}
+              height={64}
               className="rounded-full"
             />
             <div className="absolute inset-0 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 ring-2 ring-gold/40" />
           </div>
-          <span className="hidden font-serif text-lg font-bold text-green-deep transition-colors duration-300 group-hover:text-green-light sm:block">
+          <span className="hidden font-serif text-xl font-bold text-green-deep transition-colors duration-300 group-hover:text-green-light sm:block">
             {BUSINESS.name}
           </span>
         </Link>
