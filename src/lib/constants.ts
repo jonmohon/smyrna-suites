@@ -3,7 +3,7 @@ export const BUSINESS = {
   tagline: "Your Suite. Your Business. Your Way.",
   url: "https://smyrnasalonsuites.com",
   phone: "(470) 662-8690",
-  phoneSecondary: "(404) 919-8893",
+
   email: "Baldemjsalon@gmail.com",
   address: {
     street: "3020 Highlands Parkway, Suite G",
@@ -21,7 +21,7 @@ export const BUSINESS = {
 
 export const JADE_SALON = {
   name: "Jade Salon of Atlanta & Head Spa",
-  phone: "(404) 488-7150",
+  phone: "(470) 662-8690",
   website: "https://jadesalonofatlanta.com",
   description:
     "Our anchor salon specializes in premium hair services and authentic Japanese head spa treatments.",
@@ -133,12 +133,12 @@ export const FAQ_ITEMS = [
   {
     question: "Do you offer head spa services?",
     answer:
-      "You can rent our private head spa room by the hour to offer treatments to your own clients. Or refer your clients to Jade Head Spa for personalized treatment options and earn commission discounts toward your rent. Learn more at jadesalonofatlanta.com or call (404) 488-7150.",
+      "You can rent our private head spa room by the hour to offer treatments to your own clients. Or refer your clients to Jade Head Spa for personalized treatment options and earn commission discounts toward your rent. Learn more at jadesalonofatlanta.com or call (470) 662-8690.",
   },
   {
     question: "How do I book a tour?",
     answer:
-      "Simply visit our Book a Tour page and fill out the short form. We'll get back to you within 24 hours to schedule a time that works for you. You can also call us directly at (470) 662-8690 or (404) 919-8893.",
+      "Simply visit our Book a Tour page and fill out the short form. We'll get back to you within 24 hours to schedule a time that works for you. You can also call us directly at (470) 662-8690.",
   },
 ] as const;
 
