@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { CheckCircle2, Sparkle, Loader2 } from "lucide-react";
-import { BUSINESS, PROFESSIONS } from "@/lib/constants";
+import { PROFESSIONS, BUSINESS } from "@/lib/constants";
 
 export default function BookTourForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -15,14 +15,17 @@ export default function BookTourForm() {
     const data = new FormData(form);
 
     try {
-      const res = await fetch(
-        `https://formspree.io/f/${BUSINESS.formspreeId}`,
-        {
-          method: "POST",
-          body: data,
-          headers: { Accept: "application/json" },
-        }
-      );
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          phone: data.get("phone"),
+          email: data.get("email"),
+          profession: data.get("profession"),
+          message: data.get("message"),
+        }),
+      });
 
       if (res.ok) {
         setStatus("success");
