@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { BUSINESS } from "@/lib/constants";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Simple in-memory rate limiter
 const rateLimit = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_WINDOW = 60_000; // 1 minute
@@ -71,6 +69,15 @@ function buildEmailHtml(data: {
 }
 
 export async function POST(request: NextRequest) {
+  // Check API key is configured
+  if (!process.env.RESEND_API_KEY) {
+    console.error("RESEND_API_KEY is not set");
+    return NextResponse.json(
+      { error: "Email service not configured.", details: "RESEND_API_KEY missing" },
+      { status: 500 }
+    );
+  }
+
   // Rate limiting
   const ip = request.headers.get("x-forwarded-for") ?? "unknown";
   const now = Date.now();
@@ -111,10 +118,13 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Send email
+  // Send email - initialize Resend at request time so env var is read fresh
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+
   try {
-    const { error } = await resend.emails.send({
-      from: `${BUSINESS.name} <${process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev"}>`,
+    const { data: resendData, error } = await resend.emails.send({
+      from: `${BUSINESS.name} <${fromEmail}>`,
       to: [BUSINESS.email],
       replyTo: email,
       subject: `New Tour Request from ${name}`,
@@ -123,12 +133,19 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error("Resend error:", error);
-      return NextResponse.json({ error: "Failed to send message.", details: error }, { status: 500 });
+      return NextResponse.json(
+        { error: "Failed to send message.", details: error },
+        { status: 500 }
+      );
     }
 
+    console.log("Email sent successfully:", resendData);
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("Contact form error:", err);
-    return NextResponse.json({ error: "Failed to send message.", details: String(err) }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to send message.", details: String(err) },
+      { status: 500 }
+    );
   }
 }
