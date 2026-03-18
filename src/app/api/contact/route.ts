@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
 import { BUSINESS } from "@/lib/constants";
 
 // Simple in-memory rate limiter
@@ -71,7 +70,6 @@ function buildEmailHtml(data: {
 export async function POST(request: NextRequest) {
   // Check API key is configured
   if (!process.env.RESEND_API_KEY) {
-    console.error("RESEND_API_KEY is not set");
     return NextResponse.json(
       { error: "Email service not configured.", details: "RESEND_API_KEY missing" },
       { status: 500 }
@@ -118,28 +116,35 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Send email - initialize Resend at request time so env var is read fresh
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  // Send email via Resend REST API (no SDK needed)
   const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 
   try {
-    const { data: resendData, error } = await resend.emails.send({
-      from: `${BUSINESS.name} <${fromEmail}>`,
-      to: [BUSINESS.email],
-      replyTo: email,
-      subject: `New Tour Request from ${name}`,
-      html: buildEmailHtml({ name, phone, email, profession, message }),
+    const resendRes = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: `${BUSINESS.name} <${fromEmail}>`,
+        to: [BUSINESS.email],
+        reply_to: email,
+        subject: `New Tour Request from ${name}`,
+        html: buildEmailHtml({ name, phone, email, profession, message }),
+      }),
     });
 
-    if (error) {
-      console.error("Resend error:", error);
+    const resendData = await resendRes.json();
+
+    if (!resendRes.ok) {
+      console.error("Resend error:", resendData);
       return NextResponse.json(
-        { error: "Failed to send message.", details: error },
+        { error: "Failed to send message.", details: resendData },
         { status: 500 }
       );
     }
 
-    console.log("Email sent successfully:", resendData);
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("Contact form error:", err);
