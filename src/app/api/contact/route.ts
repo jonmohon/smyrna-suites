@@ -123,12 +123,12 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error("Resend error:", error);
-      return NextResponse.json({ error: "Failed to send message." }, { status: 500 });
+      return NextResponse.json({ error: "Failed to send message.", details: error }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("Contact form error:", err);
-    return NextResponse.json({ error: "Failed to send message." }, { status: 500 });
+    return NextResponse.json({ error: "Failed to send message.", details: String(err) }, { status: 500 });
   }
 }
