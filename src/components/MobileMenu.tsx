@@ -24,7 +24,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
       {/* Slide-in panel */}
       <div
-        className={`fixed top-0 right-0 z-50 flex h-full w-80 flex-col bg-green-deep shadow-[-8px_0_40px_rgba(0,0,0,0.2)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed inset-0 z-50 flex flex-col bg-green-deep transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
