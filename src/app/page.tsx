@@ -160,12 +160,13 @@ export default function Home() {
           {/* Image card with overlapping text card */}
           <div className="relative mt-14">
             <ScrollReveal variant="fade-up" delay={150}>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl sm:aspect-[3/2] lg:aspect-[16/9]">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <Image
                   src="/images/hair-wash.webp"
                   alt="Luxurious head spa hair washing service"
-                  fill
-                  className="object-cover object-[60%_center]"
+                  width={1170}
+                  height={892}
+                  className="block w-full h-auto"
                   sizes="(max-width: 1024px) 100vw, 960px"
                 />
                 {/* Dark gradient overlay at bottom */}
