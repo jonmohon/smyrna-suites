@@ -135,65 +135,66 @@ export default function Home() {
       </section>
 
       {/* ================================================================ */}
-      {/* HEAD SPA — Full-bleed editorial image + text                    */}
+      {/* HEAD SPA — Warm transitional section between hero and intro     */}
       {/* ================================================================ */}
-      <section className="relative w-full overflow-hidden bg-black">
-        {/* Background image with overlay */}
-        <div className="relative lg:flex lg:min-h-[70vh]">
-          {/* Left — image */}
-          <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:w-1/2">
-            <ParallaxImage
-              src="/images/hair-wash.webp"
-              alt="Luxurious head spa hair washing service"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-              speed={0.4}
-              containerClassName="absolute inset-0"
-            />
-            {/* Right-edge fade into content (desktop) */}
-            <div className="hidden lg:block absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0f1f15] to-transparent z-10" />
-            {/* Bottom fade into content (mobile) */}
-            <div className="lg:hidden absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0f1f15] to-transparent z-10" />
-          </div>
+      <section className="relative overflow-hidden bg-gray-warm px-4 py-24 sm:py-32">
+        {/* Subtle decorative background */}
+        <div className="pointer-events-none absolute inset-0 opacity-[0.03]">
+          <div className="absolute right-1/4 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full border border-gold" />
+        </div>
 
-          {/* Right — content */}
-          <div className="relative w-full lg:w-1/2 flex items-center bg-[#0f1f15]">
-            {/* Subtle radial glow */}
-            <div className="pointer-events-none absolute inset-0 opacity-30">
-              <div className="absolute left-0 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-3xl" />
-            </div>
-
-            <ScrollReveal variant="fade-up" className="relative z-10 px-6 sm:px-12 lg:px-16 xl:px-24 py-16 sm:py-20 lg:py-0 max-w-xl mx-auto lg:mx-0">
-              {/* Gold accent line */}
-              <div className="h-px w-16 bg-gradient-to-r from-gold to-gold-light mb-8" />
-
+        <div className="relative mx-auto max-w-6xl">
+          <ScrollReveal variant="fade-up">
+            {/* Centered label */}
+            <div className="text-center">
               <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">
                 Exclusive Amenity
               </p>
-
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-bold leading-snug text-white">
+              <h2 className="font-serif text-3xl font-bold leading-snug text-green-deep sm:text-4xl lg:text-[2.75rem]">
                 Head Spa Room Access
               </h2>
+              <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gold" />
+            </div>
+          </ScrollReveal>
 
-              <p className="mt-6 text-lg leading-relaxed text-white/70">
-                Elevate your business by offering luxurious head spa services in a private, relaxing spa room.
-              </p>
+          {/* Image card with overlapping text card */}
+          <div className="relative mt-14">
+            <ScrollReveal variant="fade-up" delay={150}>
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                <Image
+                  src="/images/hair-wash.webp"
+                  alt="Luxurious head spa hair washing service"
+                  width={1170}
+                  height={892}
+                  className="w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 960px"
+                />
+                {/* Dark gradient overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-              <div className="mt-8">
-                <Button href="/book-a-tour" variant="primary" className="px-8 py-3">
-                  Book a Tour
-                </Button>
-              </div>
-
-              {/* Bottom accent */}
-              <div className="mt-12 flex items-center gap-3">
-                <div className="h-px w-8 bg-gold/40" />
-                <Star className="h-3.5 w-3.5 text-gold/50" fill="currentColor" />
-                <div className="h-px w-8 bg-gold/40" />
+                {/* Text overlay at bottom of image */}
+                <div className="absolute inset-x-0 bottom-0 px-6 pb-8 pt-16 sm:px-10 sm:pb-10 lg:px-14 lg:pb-12">
+                  <p className="max-w-xl text-lg leading-relaxed text-white/90 sm:text-xl">
+                    Elevate your business by offering luxurious head spa services in a private, relaxing spa room.
+                  </p>
+                  <div className="mt-6">
+                    <Button href="/book-a-tour" variant="primary" className="px-8 py-3">
+                      Book a Tour
+                    </Button>
+                  </div>
+                </div>
               </div>
             </ScrollReveal>
           </div>
+
+          {/* Bottom decorative accent */}
+          <ScrollReveal variant="fade-up" delay={300}>
+            <div className="mt-12 flex items-center justify-center gap-3">
+              <div className="h-px w-12 bg-gold/40" />
+              <Star className="h-4 w-4 text-gold/60" fill="currentColor" />
+              <div className="h-px w-12 bg-gold/40" />
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
