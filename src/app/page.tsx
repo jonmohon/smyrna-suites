@@ -165,7 +165,7 @@ export default function Home() {
                   src="/images/hair-wash.webp"
                   alt="Luxurious head spa hair washing service"
                   fill
-                  className="object-cover object-center"
+                  className="object-cover object-[60%_center]"
                   sizes="(max-width: 1024px) 100vw, 960px"
                 />
                 {/* Dark gradient overlay at bottom */}
