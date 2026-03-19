@@ -160,7 +160,7 @@ export default function Home() {
           {/* Image card */}
           <div className="relative mt-14">
             <ScrollReveal variant="fade-up" delay={150}>
-              <div className="relative w-full overflow-hidden rounded-2xl bg-black shadow-2xl" style={{ aspectRatio: '1170 / 892' }}>
+              <div className="relative w-full overflow-hidden rounded-2xl bg-black shadow-2xl" style={{ aspectRatio: '2304 / 1728' }}>
                 <Image
                   src="/images/hair-wash.webp"
                   alt="Luxurious head spa hair washing service"
