@@ -24,7 +24,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
       {/* Slide-in panel */}
       <div
-        className={`fixed top-0 right-0 z-50 flex h-full w-80 flex-col bg-white/90 backdrop-blur-xl shadow-[-8px_0_40px_rgba(0,0,0,0.1)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed top-0 right-0 z-50 flex h-full w-80 flex-col bg-green-deep shadow-[-8px_0_40px_rgba(0,0,0,0.2)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -38,15 +38,15 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </span>
           <button
             onClick={onClose}
-            className="group flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 hover:bg-green-muted hover:rotate-90"
+            className="group flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 hover:bg-white/10 hover:rotate-90"
             aria-label="Close menu"
           >
-            <X className="h-5 w-5 text-gray-400 transition-colors duration-300 group-hover:text-green-deep" />
+            <X className="h-5 w-5 text-white/60 transition-colors duration-300 group-hover:text-white" />
           </button>
         </div>
 
         {/* Subtle divider */}
-        <div className="mx-6 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+        <div className="mx-6 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
         {/* Navigation links with staggered animation */}
         <nav className="flex flex-1 flex-col px-6 py-4">
@@ -56,7 +56,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 key={link.href}
                 href={link.href}
                 onClick={onClose}
-                className={`group relative flex items-center py-4 text-base font-medium text-gray-600 transition-all duration-300 hover:text-green-deep hover:translate-x-2 ${
+                className={`group relative flex items-center py-4 text-base font-medium text-white/80 transition-all duration-300 hover:text-white hover:translate-x-2 ${
                   isOpen
                     ? "animate-fade-in-up opacity-100"
                     : "opacity-0"
@@ -68,7 +68,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               >
                 <span className="mr-3 h-1.5 w-1.5 rounded-full bg-gold/40 transition-all duration-300 group-hover:bg-gold group-hover:scale-125" />
                 {link.label}
-                <span className="absolute bottom-3 left-0 right-0 h-px bg-gradient-to-r from-gray-100 to-transparent" />
+                <span className="absolute bottom-3 left-0 right-0 h-px bg-gradient-to-r from-white/10 to-transparent" />
               </Link>
             )
           )}
@@ -94,7 +94,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </Link>
 
           {/* Subtle tagline below CTA */}
-          <p className="mt-4 text-center text-xs text-gray-400">
+          <p className="mt-4 text-center text-xs text-white/40">
             Premium Salon Suites in Smyrna, GA
           </p>
         </div>
