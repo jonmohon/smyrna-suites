@@ -137,13 +137,13 @@ export default function Home() {
       {/* ================================================================ */}
       {/* HEAD SPA — Warm transitional section between hero and intro     */}
       {/* ================================================================ */}
-      <section className="relative overflow-hidden bg-gray-warm px-4 py-24 sm:py-32">
+      <section className="relative overflow-hidden bg-gray-warm py-24 sm:py-32">
         {/* Subtle decorative background */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.03]">
           <div className="absolute right-1/4 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full border border-gold" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl">
+        <div className="relative mx-auto max-w-6xl px-4">
           <ScrollReveal variant="fade-up">
             {/* Centered label */}
             <div className="text-center">
@@ -156,17 +156,17 @@ export default function Home() {
               <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gold" />
             </div>
           </ScrollReveal>
+        </div>
 
-          {/* Image card with overlapping text card */}
+          {/* Image card — full width */}
           <div className="relative mt-14">
             <ScrollReveal variant="fade-up" delay={150}>
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+              <div className="relative overflow-hidden aspect-[4/3] sm:aspect-[16/9]">
                 <Image
                   src="/images/hair-wash.webp"
                   alt="Luxurious head spa hair washing service"
-                  width={1170}
-                  height={892}
-                  className="block w-full h-auto"
+                  fill
+                  className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 960px"
                 />
                 {/* Dark gradient overlay at bottom */}
@@ -195,7 +195,6 @@ export default function Home() {
               <div className="h-px w-12 bg-gold/40" />
             </div>
           </ScrollReveal>
-        </div>
       </section>
 
       {/* ================================================================ */}
