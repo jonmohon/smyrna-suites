@@ -137,13 +137,13 @@ export default function Home() {
       {/* ================================================================ */}
       {/* HEAD SPA — Warm transitional section between hero and intro     */}
       {/* ================================================================ */}
-      <section className="relative overflow-hidden bg-gray-warm py-24 sm:py-32">
+      <section className="relative overflow-hidden bg-gray-warm px-4 py-24 sm:py-32">
         {/* Subtle decorative background */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.03]">
           <div className="absolute right-1/4 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full border border-gold" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-4">
+        <div className="relative mx-auto max-w-6xl">
           <ScrollReveal variant="fade-up">
             {/* Centered label */}
             <div className="text-center">
@@ -156,18 +156,18 @@ export default function Home() {
               <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gold" />
             </div>
           </ScrollReveal>
-        </div>
 
-          {/* Image card — full width */}
+          {/* Image card */}
           <div className="relative mt-14">
             <ScrollReveal variant="fade-up" delay={150}>
-              <div className="relative overflow-hidden aspect-[4/3] sm:aspect-[16/9]">
+              <div className="relative w-full overflow-hidden rounded-2xl bg-black shadow-2xl" style={{ aspectRatio: '1170 / 892' }}>
                 <Image
                   src="/images/hair-wash.webp"
                   alt="Luxurious head spa hair washing service"
                   fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 960px"
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 1152px"
+                  priority
                 />
                 {/* Dark gradient overlay at bottom */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -195,6 +195,7 @@ export default function Home() {
               <div className="h-px w-12 bg-gold/40" />
             </div>
           </ScrollReveal>
+        </div>
       </section>
 
       {/* ================================================================ */}
