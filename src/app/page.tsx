@@ -135,6 +135,69 @@ export default function Home() {
       </section>
 
       {/* ================================================================ */}
+      {/* HEAD SPA — Full-bleed editorial image + text                    */}
+      {/* ================================================================ */}
+      <section className="relative w-full overflow-hidden bg-black">
+        {/* Background image with overlay */}
+        <div className="relative lg:flex lg:min-h-[70vh]">
+          {/* Left — image */}
+          <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:w-1/2">
+            <ParallaxImage
+              src="/images/hair-wash.webp"
+              alt="Luxurious head spa hair washing service"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+              speed={0.4}
+              containerClassName="absolute inset-0"
+            />
+            {/* Right-edge fade into content (desktop) */}
+            <div className="hidden lg:block absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0f1f15] to-transparent z-10" />
+            {/* Bottom fade into content (mobile) */}
+            <div className="lg:hidden absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0f1f15] to-transparent z-10" />
+          </div>
+
+          {/* Right — content */}
+          <div className="relative w-full lg:w-1/2 flex items-center bg-[#0f1f15]">
+            {/* Subtle radial glow */}
+            <div className="pointer-events-none absolute inset-0 opacity-30">
+              <div className="absolute left-0 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-3xl" />
+            </div>
+
+            <ScrollReveal variant="fade-up" className="relative z-10 px-6 sm:px-12 lg:px-16 xl:px-24 py-16 sm:py-20 lg:py-0 max-w-xl mx-auto lg:mx-0">
+              {/* Gold accent line */}
+              <div className="h-px w-16 bg-gradient-to-r from-gold to-gold-light mb-8" />
+
+              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">
+                Exclusive Amenity
+              </p>
+
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-bold leading-snug text-white">
+                Head Spa Room Access
+              </h2>
+
+              <p className="mt-6 text-lg leading-relaxed text-white/70">
+                Elevate your business by offering luxurious head spa services in a private, relaxing spa room.
+              </p>
+
+              <div className="mt-8">
+                <Button href="/book-a-tour" variant="primary" className="px-8 py-3">
+                  Book a Tour
+                </Button>
+              </div>
+
+              {/* Bottom accent */}
+              <div className="mt-12 flex items-center gap-3">
+                <div className="h-px w-8 bg-gold/40" />
+                <Star className="h-3.5 w-3.5 text-gold/50" fill="currentColor" />
+                <div className="h-px w-8 bg-gold/40" />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================ */}
       {/* INTRO — Elegant welcome with decorative quote styling           */}
       {/* ================================================================ */}
       <section className="relative overflow-hidden px-4 py-24 sm:py-32">
