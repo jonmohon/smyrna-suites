@@ -217,7 +217,16 @@ export default function LandingContent({ fontClass }: Props) {
             </p>
           </div>
           <div className="clean-image reveal delay-1">
-            <img src="/images/head-spa.webp" alt="Private head spa room with scalp treatment amenities" loading="lazy" />
+            <img
+              src="/images/hair-wash.webp"
+              onError={(e) => {
+                const el = e.currentTarget;
+                el.onerror = null;
+                el.src = "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=900&q=80";
+              }}
+              alt="Relaxing head spa scalp and hair treatment at Smyrna Salon Suites"
+              loading="lazy"
+            />
             <div className="clean-image-caption">
               <span className="cap-eyebrow">Our Private Head Spa</span>
               <span className="cap-title">Ready for you to use.</span>
