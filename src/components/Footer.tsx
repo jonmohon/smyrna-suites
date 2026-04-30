@@ -106,11 +106,19 @@ export default function Footer() {
 
         {/* Copyright bar */}
         <div className="border-t border-white/10">
-          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <p className="text-center text-xs tracking-wide text-white/40">
+          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
+            <p className="text-xs tracking-wide text-white/40">
               &copy; {new Date().getFullYear()} {BUSINESS.name}. All rights
               reserved.
             </p>
+            <a
+              href="https://www.nexvato.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs tracking-wide text-white/40 transition-colors hover:text-gold"
+            >
+              Powered by Nexvato
+            </a>
           </div>
         </div>
       </div>
