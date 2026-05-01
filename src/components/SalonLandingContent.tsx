@@ -1,14 +1,38 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import "./salon-landing.css";
 
 type Props = { fontClass: string };
 
-// TODO: client to provide the actual Google Business profile and Facebook URLs
 const GOOGLE_PROFILE_URL = "https://www.google.com/maps/search/?api=1&query=Smyrna+Salon+Suites+Smyrna+GA";
 const FACEBOOK_URL = "https://www.facebook.com/";
+const BOOK_TOUR_URL = "/book-a-tour";
+const CHECK_AVAIL_URL = "/book-a-tour";
 
-export default function LandingContent({ fontClass }: Props) {
+function CtaPair({ className = "", small = false }: { className?: string; small?: boolean }) {
+  const padding = small ? { padding: "13px 26px", fontSize: "0.78rem" } : undefined;
+  return (
+    <div className={`cta-pair ${className}`}>
+      <a className="btn" href={BOOK_TOUR_URL} style={padding}>
+        <span>Book a Tour</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+      <a className="btn btn-outline" href={CHECK_AVAIL_URL} style={padding}>
+        <span>Check Availability</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+      </a>
+    </div>
+  );
+}
+
+export default function SalonLandingContent({ fontClass }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement>(null);
 
@@ -86,42 +110,37 @@ export default function LandingContent({ fontClass }: Props) {
 
   return (
     <div ref={rootRef} className={`${fontClass} salon-landing`}>
-      {/* ========= HERO — Plaza image with logo projection ========= */}
+      {/* ========= HERO — Jade's spec: Luxury headline + dual CTAs ========= */}
       <section className="hero-plaza">
         <div className="hero-plaza-bg">
-          <img src="/images/jade-courtyard.webp" alt="Smyrna Salon Suites at Integrity Heights Plaza" />
+          <img src="/images/jade-courtyard.webp" alt="Luxury salon suites at Smyrna Salon Suites in Integrity Heights Plaza" />
           <div className="hero-plaza-overlay" />
         </div>
         <div className="hero-plaza-content">
-          <div className="logo-projection">
-            <div className="logo-halo" aria-hidden="true" />
-            <img src="/images/logo.webp" alt="Smyrna Salon Suites" className="logo-mark-large" />
-          </div>
-          <h1 className="brand-name">
-            <span className="brand-top">Smyrna</span>
-            <span className="brand-bottom">Salon Suites</span>
+          <span className="hero-availability-pill">
+            <span className="dot" />
+            Limited Suites Available
+          </span>
+
+          <h1 className="hero-luxury-h1">
+            Luxury Salon Suites <em>in Smyrna, GA</em>
           </h1>
+
+          <p className="hero-luxury-sub">
+            Private, fully furnished suites + exclusive Head Spa access
+          </p>
+
           <div className="brand-divider" aria-hidden="true">
             <span className="ln" />
             <span className="dot" />
             <span className="ln" />
           </div>
-          <div className="tagline">
-            <span>Convenient</span>
-            <span className="sep">·</span>
-            <span>Smyrna / Atlanta</span>
-            <span className="sep">·</span>
-            <span>Location</span>
-          </div>
-          <div className="hero-plaza-cta">
-            <a className="btn" href="https://www.smyrnasalonsuites.com/book-a-tour">
-              <span>Schedule a Tour</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </a>
-          </div>
+
+          <CtaPair className="hero-cta-pair" />
+
+          <p className="hero-microcopy">
+            Boutique setting · A limited number of suites · By appointment only
+          </p>
         </div>
         <div className="scroll-indicator">Scroll</div>
       </section>
@@ -151,15 +170,7 @@ export default function LandingContent({ fontClass }: Props) {
               Smyrna/Atlanta area, our salon suites provide the perfect setting to attract premium
               clientele, increase revenue, and stand out in a competitive beauty market.
             </p>
-            <div className="intro-cta-row">
-              <a className="btn" href="https://www.smyrnasalonsuites.com/book-a-tour">
-                <span>Schedule a Tour</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </a>
-            </div>
+            <CtaPair className="intro-cta-row" />
           </div>
           <div className="hero-stats reveal delay-1">
             <div className="stat">
@@ -204,17 +215,7 @@ export default function LandingContent({ fontClass }: Props) {
               suites, this one-of-a-kind amenity gives you the ability to grow your business,
               expand your service menu, and stand out in a competitive market.
             </p>
-            <p className="suites-spa-cta-line">
-              Discover how Smyrna Salon Suites can help elevate your business.{" "}
-              <a href="https://www.smyrnasalonsuites.com" className="heritage-link">
-                Visit SmyrnaSalonSuites.com
-              </a>{" "}
-              to learn more and{" "}
-              <a href="https://www.smyrnasalonsuites.com/book-a-tour" className="heritage-link">
-                schedule a tour
-              </a>
-              .
-            </p>
+            <CtaPair className="cta-row-mt" />
           </div>
           <div className="clean-image reveal delay-1">
             <img
@@ -265,6 +266,9 @@ export default function LandingContent({ fontClass }: Props) {
               week can realistically cover your entire salon suite rent, making this not only a
               client favorite, but a smart, income-generating addition to your business in Smyrna.
             </p>
+          </div>
+          <div className="reveal delay-2" style={{ textAlign: "center", marginTop: 40 }}>
+            <CtaPair />
           </div>
         </div>
       </section>
@@ -319,6 +323,9 @@ export default function LandingContent({ fontClass }: Props) {
               <p>Minutes from Vinings and I-285, perfectly placed for Metro Atlanta clients.</p>
             </div>
           </div>
+          <div className="reveal" style={{ textAlign: "center", marginTop: 50 }}>
+            <CtaPair />
+          </div>
         </div>
       </section>
 
@@ -347,21 +354,12 @@ export default function LandingContent({ fontClass }: Props) {
               exceptional client experience in one of Metro Atlanta&apos;s most desirable locations.
             </p>
             <p>
-              <strong>A limited number of suites are available.</strong> Visit{" "}
-              <a href="https://www.smyrnasalonsuites.com" className="heritage-link">
-                SmyrnaSalonSuites.com
-              </a>{" "}
-              for more information and to schedule your private tour today.
+              <strong>A limited number of suites are available.</strong> Schedule your private tour
+              today.
             </p>
 
             <div className="location-actions">
-              <a className="btn" href="https://www.smyrnasalonsuites.com/book-a-tour">
-                <span>Schedule a Tour</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </a>
+              <CtaPair />
 
               <div className="social-row">
                 <a className="social-chip" href={GOOGLE_PROFILE_URL} target="_blank" rel="noopener">
@@ -504,6 +502,10 @@ export default function LandingContent({ fontClass }: Props) {
           </div>
 
           <div className="reveal" style={{ textAlign: "center", marginTop: 55 }}>
+            <CtaPair />
+          </div>
+
+          <div className="reveal" style={{ textAlign: "center", marginTop: 22 }}>
             <a
               className="btn btn-outline"
               href="https://jadesalonofatlanta.com/services-pricing/"
@@ -514,6 +516,29 @@ export default function LandingContent({ fontClass }: Props) {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M7 17L17 7" />
                 <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ========= EXPERIENCE LINK ========= */}
+      <section className="block experience-link-section">
+        <div className="container reveal">
+          <div className="experience-link-card">
+            <span className="section-eyebrow">Want the Full Story?</span>
+            <h2>
+              Explore the <em>Smyrna Salon Suites Experience</em>
+            </h2>
+            <p>
+              See the suites, the atmosphere, the philosophy, and what daily life looks like for
+              the boutique group of professionals who call this space home.
+            </p>
+            <a className="btn btn-outline" href="/luxury-salon-suites-smyrna">
+              <span>View The Experience</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
               </svg>
             </a>
           </div>
@@ -600,15 +625,19 @@ export default function LandingContent({ fontClass }: Props) {
           </p>
 
           <div className="invite-ctas">
-            <a className="btn-invite primary" href="https://www.smyrnasalonsuites.com/book-a-tour">
-              <span>Book Your Private Tour</span>
+            <a className="btn-invite primary" href={BOOK_TOUR_URL}>
+              <span>Book a Tour</span>
               <svg className="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </a>
-            <a className="btn-invite secondary" href="https://www.smyrnasalonsuites.com">
-              <span>View Full Details</span>
+            <a className="btn-invite secondary" href={CHECK_AVAIL_URL}>
+              <span>Check Availability</span>
+              <svg className="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
             </a>
           </div>
 

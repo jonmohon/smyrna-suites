@@ -29,6 +29,7 @@ export const JADE_SALON = {
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
+  { label: "Experience", href: "/luxury-salon-suites-smyrna" },
   { label: "About", href: "/about" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },

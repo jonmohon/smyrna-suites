@@ -201,6 +201,139 @@
 .salon-landing .hero-plaza-cta .btn::before { background: var(--white); }
 .salon-landing .hero-plaza-cta .btn:hover { color: var(--green-dark) !important; }
 
+/* ============ JADE'S LUXURY HERO ============ */
+.salon-landing .hero-availability-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  margin-bottom: 22px;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gold);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(209,180,104,0.45);
+  border-radius: 50px;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  animation: salon-fadeUp .9s ease forwards .55s;
+}
+.salon-landing .hero-availability-pill .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(209,180,104,0.7);
+  animation: salon-dotPulse 1.8s ease-in-out infinite;
+}
+
+.salon-landing .hero-luxury-h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  color: rgba(255,255,255,0.96);
+  margin: 0 auto 18px;
+  max-width: 14ch;
+  opacity: 0;
+  animation: salon-fadeUp 1s ease forwards .7s;
+}
+.salon-landing .hero-luxury-h1 em {
+  display: block;
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.salon-landing .hero-luxury-sub {
+  font-family: var(--sans);
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.55;
+  font-weight: 400;
+  color: rgba(255,255,255,0.86);
+  max-width: 560px;
+  margin: 0 auto 28px;
+  opacity: 0;
+  animation: salon-fadeUp 1s ease forwards .85s;
+}
+
+.salon-landing .hero-cta-pair {
+  opacity: 0;
+  animation: salon-fadeUp 1s ease forwards 1.05s;
+}
+
+.salon-landing .hero-microcopy {
+  margin-top: 28px;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+  opacity: 0;
+  animation: salon-fadeUp 1s ease forwards 1.25s;
+}
+
+/* ============ CTA PAIR — used everywhere on the homepage ============ */
+.salon-landing .cta-pair {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+}
+.salon-landing .cta-row-mt {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+/* On the dark hero, force the outline button to read as light-on-dark */
+.salon-landing .hero-plaza .cta-pair .btn-outline {
+  color: var(--white) !important;
+  border-color: rgba(209,180,104,0.55);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+}
+.salon-landing .hero-plaza .cta-pair .btn-outline::before { background: var(--gold); }
+.salon-landing .hero-plaza .cta-pair .btn-outline:hover {
+  color: var(--green-dark) !important;
+  border-color: var(--gold);
+}
+
+/* ============ EXPERIENCE LINK SECTION ============ */
+.salon-landing .experience-link-section {
+  background: linear-gradient(180deg, var(--off-white) 0%, var(--white) 100%);
+  padding: 90px 40px;
+}
+.salon-landing .experience-link-card {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 60px 40px;
+  background: var(--white);
+  border: 1px solid rgba(209,180,104,0.3);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+.salon-landing .experience-link-card h2 { margin-bottom: 18px; }
+.salon-landing .experience-link-card p {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  max-width: 560px;
+  margin: 0 auto 28px;
+}
+
+@media (max-width: 600px) {
+  .salon-landing .cta-pair { flex-direction: column; width: 100%; }
+  .salon-landing .cta-pair .btn { width: 100%; justify-content: center; }
+  .salon-landing .experience-link-card { padding: 40px 24px; }
+}
+
 /* ============ INTRO WHITE ============ */
 .salon-landing .intro-white {
   background: var(--white);

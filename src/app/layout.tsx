@@ -27,29 +27,31 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(BUSINESS.url),
   title: {
-    default: "Smyrna Salon Suites | Premium Salon Suite Rentals in Smyrna, GA",
+    default: "Luxury Salon Suites in Smyrna, GA | Smyrna Salon Suites",
     template: "%s | Smyrna Salon Suites",
   },
   description:
-    "Rent a fully furnished salon suite in Smyrna, GA. Private suites for stylists, barbers, and beauty professionals. Flexible pricing plans available. Home of Jade Salon of Atlanta & Head Spa.",
+    "Luxury salon suites for rent in Smyrna, GA. Private, fully furnished suites + exclusive Head Spa access. Boutique setting with a limited number of professionals. Book a tour or check availability today.",
   keywords: [
+    "luxury salon suites Smyrna GA",
     "salon suites for rent Smyrna",
-    "hair salon Smyrna",
     "salon suite rental Smyrna GA",
-    "barber suite rental",
+    "hair salon Smyrna",
+    "barber suite rental Smyrna",
     "beauty salon Smyrna GA",
     "salon suites near me",
     "private salon suite Atlanta",
     "booth rental Smyrna GA",
+    "head spa Smyrna",
     "beauty professional space Smyrna",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Smyrna Salon Suites | Premium Salon Suite Rentals",
+    title: "Luxury Salon Suites in Smyrna, GA",
     description:
-      "Rent a fully furnished salon suite in Smyrna, GA. Private suites for stylists, barbers, and beauty professionals.",
+      "Private, fully furnished suites + exclusive Head Spa access. Boutique setting in Smyrna, GA — book a tour today.",
     type: "website",
     locale: "en_US",
     url: "/",
@@ -58,15 +60,15 @@ export const metadata: Metadata = {
         url: "/images/og-image.webp",
         width: 1200,
         height: 630,
-        alt: "Smyrna Salon Suites — Premium salon suite rentals in Smyrna, GA",
+        alt: "Smyrna Salon Suites — Luxury salon suites for rent in Smyrna, GA",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Smyrna Salon Suites | Premium Salon Suite Rentals",
+    title: "Luxury Salon Suites in Smyrna, GA",
     description:
-      "Rent a fully furnished salon suite in Smyrna, GA. Private suites for stylists, barbers, and beauty professionals.",
+      "Private, fully furnished suites + exclusive Head Spa access. Boutique setting in Smyrna, GA.",
     images: ["/images/og-image.webp"],
   },
 };
